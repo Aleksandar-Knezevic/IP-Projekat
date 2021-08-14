@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    
+    height: 100vh;
+}
+
+.header {
+    height: 100px;
+    background-color: #34a0a4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 2rem;
+    cursor:pointer;
+}
+
+.login{
+    width: 70px;
+    height: 40px;
+    background-color: #184E77;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.login-form{
+    height: 150px;
+    width: 250px;
+    background-color: #D9ED92;
+    position: absolute;
+    z-index: 1;
+    margin-top: 190px;
+    right: 0;
+    visibility: hidden;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer{
+    display: flex;
+    height: 100px;
+    background-color: #168aad;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content{
+    flex:1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table{
+	table-layout:fixed;
+}
+
+td {
+    text-align: center;
+    height: 30px;
+    overflow: auto;
+}
+
+td, tr, th {
+    border: 1px solid black;
+    white-space:nowrap;
+    overflow: auto;
+}
+
+.arrow{
+    cursor: pointer;
+}
+
+
+.login-2 {
+    width: 100px;
+    height: 50px;
+    margin-left: auto;
+    
+}
+
+.menu-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    min-height: 50px;
+    background-color: #52b69a;
+    align-items: center;
+    margin: 0;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.menu-li{
+    width: 10%;
+    height: 100%;
+    min-height: 50px;
+    flex-basis: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #52b69a;
+}
+
+.menu-li :hover
+{
+    background-color: #1a759f;
+}
