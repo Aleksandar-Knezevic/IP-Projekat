@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<h:form>
+		<hr/>
+    	<h:outputText value="Ime"></h:outputText>
+    	<h:inputText value="#{zaposleniBean.zaposleni.ime}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Prezime"></h:outputText>
+    	<h:inputText value="#{zaposleniBean.zaposleni.prezime}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Korisnicko ime"></h:outputText>
+    	<h:inputText value="#{zaposleniBean.zaposleni.korisnickoIme}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Lozinka"></h:outputText>
+    	<h:inputText value="#{zaposleniBean.zaposleni.lozinka}" required="true"></h:inputText>
+    	<hr/>
+    	
+    	<h:commandButton value="Dodaj" action="#{zaposleniBean.dodajZaposlenog}"></h:commandButton>
+    </h:form>
+</ui:composition>    
+</html>

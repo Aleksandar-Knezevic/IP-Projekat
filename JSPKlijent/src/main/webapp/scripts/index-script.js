@@ -41,11 +41,11 @@ async function dohvatiDolaske()
         var li = document.createElement('li');
         var div = document.createElement('div');
         div.className='flight-list-item';
-        div.innerHTML= "Od: " + element.polazniGrad.nazivGrada + ", " + element.polaznaDrzava.nazivDrzave + "<br>" +
-        "Do: " + element.odredisniGrad.nazivGrada + ", " + element.odredisnaDrzava.nazivDrzave + "<br>" + 
-        "Vrijeme polaska: " + element.vrijemePolaska + "<br>" + 
-        "Vrijeme dolaska: " + element.vrijemeDolaska + "<br>" + 
-        "Status: " + element.status;
+        div.innerHTML= "<span>Od: " + element.polazniGrad.nazivGrada + ", " + element.polaznaDrzava.nazivDrzave + "</span>" +
+        "<span>Do: " + element.odredisniGrad.nazivGrada + ", " + element.odredisnaDrzava.nazivDrzave + "</span>" + 
+        "<span>Vrijeme polaska: " + element.vrijemePolaska + "</span>" + 
+        "<span>Vrijeme dolaska: " + element.vrijemeDolaska + "</span>" + 
+        "<span>Status: " + element.status + "</span>";
         li.appendChild(div);
         dolasciList.appendChild(li);
     });

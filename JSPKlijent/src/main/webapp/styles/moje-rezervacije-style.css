@@ -27,14 +27,7 @@
 
 
 
-.footer{
-    display: flex;
-    height: 100px;
-    min-height:100px;
-    background-color: #168aad;
-    align-items: center;
-    justify-content: space-between;
-}
+
 
 
 
@@ -80,7 +73,6 @@
     flex-direction: column;
     justify-content:flex-start;
     align-items: center;
-    overflow: auto;
 }
 
 .let-div:hover{
@@ -105,8 +97,8 @@
     margin-left:28%;
 }
 
-button{
-	margin-left: 45% !important;
+.button-otkazi{
+	margin-left: 45%;
 }
 
 .menu-list{
@@ -129,4 +121,35 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form-contact{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form-contact > *{
+    margin: 3px;
+}
+
+.posalji-dugme{
+    margin:0;
+}
+
+.contact-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer{
+    
+    background-color: turquoise;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

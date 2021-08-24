@@ -32,6 +32,9 @@ public class GradDAO {
 			GradDTO grad = new GradDTO(rs.getInt("id"), rs.getString("nazivGrada"), DrzavaDAO.selectOne(rs.getInt("drzava_id")));
 			sviGradovi.add(grad);
 		}
+		rs.close();
+		s.close();
+		c.close();
 		return sviGradovi;
 	}
 	
@@ -46,6 +49,9 @@ public class GradDAO {
 		{
 			grad = new GradDTO(rs.getInt("id"), rs.getString("nazivGrada"), DrzavaDAO.selectOne(rs.getInt("drzava_id")));
 		}
+		rs.close();
+		ps.close();
+		c.close();
 		return grad;
 	}
 	
@@ -61,6 +67,9 @@ public class GradDAO {
 			GradDTO grad = new GradDTO(rs.getInt("id"), rs.getString("nazivGrada"), DrzavaDAO.selectOne(rs.getInt("drzava_id")));
 			gradoviUDrzavi.add(grad);
 		}
+		rs.close();
+		ps.close();
+		c.close();
 		return gradoviUDrzavi;
 	}
 

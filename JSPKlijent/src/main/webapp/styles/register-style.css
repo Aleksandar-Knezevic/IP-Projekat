@@ -22,16 +22,7 @@
     font-size: 2rem;
     cursor:pointer;
 }
-.footer{
-    display: flex;
-    background-color: #168aad;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    min-height: 100px;
-    
-    
-}
+
 .form-container{
     display: flex;
     flex-direction: column;
@@ -101,4 +92,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form-contact{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form-contact > *{
+    margin: 3px;
+}
+
+.posalji-dugme{
+    margin:0;
+}
+
+.contact-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer{
+    
+    background-color: turquoise;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

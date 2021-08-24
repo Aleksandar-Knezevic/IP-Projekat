@@ -72,6 +72,7 @@ function popuniLetovima(data)
         {
             dugme=document.createElement('button');
             dugme.innerText='Otkazi';
+            dugme.className="button-otkazi";
             dugme.onclick=() => otkaziRezervaciju(element.let.id);
         }
         

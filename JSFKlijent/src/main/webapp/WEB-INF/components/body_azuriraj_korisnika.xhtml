@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<h:form>
+		<hr/>
+    	<h:outputText value="Ime"></h:outputText>
+    	<h:inputText value="#{korisniciBean.korisnik.ime}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Prezime"></h:outputText>
+    	<h:inputText value="#{korisniciBean.korisnik.prezime}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Korisnicko ime"></h:outputText>
+    	<h:inputText value="#{korisniciBean.korisnik.korisnickoIme}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Email"></h:outputText>
+    	<h:inputText value="#{korisniciBean.korisnik.email}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Lozinka"></h:outputText>
+    	<h:inputText value="#{korisniciBean.korisnik.lozinka}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Drzava"></h:outputText>
+    	<h:selectOneMenu value="#{korisniciBean.korisnik.drzava}" required="true">
+    		<f:selectItems value="#{korisniciBean.dostupneDrzave}" var="drzava" itemValue="#{drzava.name}" itemLabel="#{drzava.name}"></f:selectItems>
+    	</h:selectOneMenu>
+    	<h:commandButton value="Dohvati dostupne drzave" action="#{korisniciBean.dohvatiDostupneDrzave}"></h:commandButton>
+    	<hr/>
+    	<h:outputText value="Tip naloga"></h:outputText>
+    	<h:selectOneMenu value="#{korisniciBean.korisnik.tipNaloga}">
+    		<f:selectItem itemValue="Putnicki" itemLabel="Putnicki"></f:selectItem>
+    		<f:selectItem itemValue="Teretni" itemLabel="Teretni"></f:selectItem>
+    	</h:selectOneMenu>
+    	<hr/>
+    	<h:outputText value="Adresa"></h:outputText>
+    	<h:inputText value="#{korisniciBean.korisnik.adresa}" required="true"></h:inputText>
+    	<hr/>
+    	
+    	<h:commandButton value="Azuriraj" action="#{korisniciBean.azurirajKorisnika}"></h:commandButton>
+    </h:form>
+</ui:composition>    
+</html>

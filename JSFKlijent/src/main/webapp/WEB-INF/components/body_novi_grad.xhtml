@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<h:form>
+		<hr/>
+    	<h:outputText value="Unesite naziv grada"></h:outputText>
+    	<h:inputText value="#{gradoviBean.grad.nazivGrada}" required="true"></h:inputText>
+    	<hr/>
+    	<h:outputText value="Izaberite drzavu"></h:outputText>
+    	<h:selectOneMenu value="#{gradoviBean.selectedDrzava}">
+    		<f:selectItems value="#{drzaveBean.sveDrzave}" var="drzava" itemLabel="#{drzava.nazivDrzave}" itemValue="#{drzava.id}"></f:selectItems>
+    	</h:selectOneMenu>
+    	<hr/>
+    	<h:commandButton value="Dodaj" action="#{gradoviBean.dodajGrad}"></h:commandButton>
+    </h:form>
+</ui:composition>    
+</html>

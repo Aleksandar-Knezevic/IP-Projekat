@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<h:form>
+		<b>Svi gradovi: </b>
+		<h:commandButton value="Dohvati gradove" action="#{gradoviBean.ocitajGradoveIzBaze}"></h:commandButton>
+		<h:commandButton value="Novi grad" action="#{gradoviBean.noviGrad}"></h:commandButton>
+		<h:dataTable value="${gradoviBean.sviGradovi}" var="grad"
+			style="width: 100%; text-align:center;">
+			<h:column >
+				<f:facet name="header">ID Grada</f:facet>
+				<h:outputText value="${grad.id}">
+				</h:outputText>
+			</h:column>
+			<h:column >
+				<f:facet name="header">Naziv Grada</f:facet>
+				<h:outputText value="${grad.nazivGrada}"></h:outputText>
+			</h:column>
+			<h:column >
+				<f:facet name="header">Drzava</f:facet>
+				<h:outputText value="${grad.drzava.nazivDrzave}"></h:outputText>
+			</h:column>
+			<h:column >
+				<f:facet name="header">Obrisi grad</f:facet>
+				<h:commandLink value="Obrisi - ${grad.id}"
+					action="#{gradoviBean.obrisiGrad}">
+					<f:param value="${grad.id}" name="id" />
+				</h:commandLink>
+			</h:column>
+			<h:column >
+				<f:facet name="header">Azuriraj grad</f:facet>
+				<h:commandLink value="Azuriraj - ${grad.id}"
+					action="#{gradoviBean.azurirajGradPage}">
+					<f:param value="${grad.id}" name="id" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</ui:composition>
+</html>

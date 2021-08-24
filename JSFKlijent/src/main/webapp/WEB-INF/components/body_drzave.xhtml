@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head />
+<ui:composition>
+	<h:form>
+		<b>Sve drzave: </b>
+		<h:commandButton value="Dohvati drzave" action="#{drzaveBean.ocitajDrzaveizBaze}"></h:commandButton>
+		<h:commandButton value="Nova drzava" action="#{drzaveBean.novaDrzava}"></h:commandButton>
+		<h:dataTable value="${drzaveBean.sveDrzave}" var="drzava"
+			style="width: 100%; text-align:center;">
+			<h:column >
+				<f:facet name="header">ID drzave</f:facet>
+				<h:outputText value="${drzava.id}">
+				</h:outputText>
+			</h:column>
+			<h:column >
+				<f:facet name="header">Naziv Drzave</f:facet>
+				<h:outputText value="${drzava.nazivDrzave}"></h:outputText>
+			</h:column>
+			<h:column >
+				<f:facet name="header">Obrisi drzavu</f:facet>
+				<h:commandLink value="Obrisi - ${drzava.id}"
+					action="#{drzaveBean.obrisiDrzavu}">
+					<f:param value="${drzava.id}" name="id" />
+				</h:commandLink>
+			</h:column>
+			<h:column >
+				<f:facet name="header">Azuriraj drzavu</f:facet>
+				<h:commandLink value="Azuriraj - ${drzava.id}"
+					action="#{drzaveBean.azurirajDrzavuPage}">
+					<f:param value="${drzava.id}" name="id" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</ui:composition>
+</html>
