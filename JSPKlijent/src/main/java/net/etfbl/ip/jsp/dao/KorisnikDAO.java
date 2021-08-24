@@ -15,11 +15,14 @@ public class KorisnikDAO {
 	private static final String SELECT_ONE = "SELECT * FROM korisnik WHERE id=?";
 	private static final String INSERT = "INSERT INTO korisnik (ime, prezime, korisnickoIme, email, lozinka, drzava, tipNaloga, adresa) VALUES (?,?,?,?,?,?,?,?)";
 	private static final String LOGIN = "SELECT * FROM korisnik WHERE korisnickoIme=? AND lozinka=?";
+	private static final String LOG_ACCESS = "UPDATE pristupi SET brojPristupa=brojPristupa+1 WHERE datum=?";
+	private static final String GET_ACCESS = "SELECT * FROM pristupi WHERE datum=?";
+	private static final String INSERT_ACCESS = "INSERT INTO pristupi (datum, brojPristupa) VALUES (?, ?)";
 
 	private static Connection getConnection() throws Exception
 	{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC", "root", "nokia2700");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC&useSSL=false", "root", "nokia2700");
 	}
 	
 	public static ArrayList<KorisnikDTO> selectAll() throws Exception
@@ -80,6 +83,32 @@ public class KorisnikDAO {
 		if(rs.next())
 			korisnik = new KorisnikDTO(rs.getInt("id"), rs.getString("ime"), rs.getString("prezime"), rs.getString("korisnickoIme"), rs.getString("email"), rs.getString("lozinka"), rs.getString("drzava"), rs.getString("tipNaloga"), rs.getString("adresa"));
 		return korisnik;
+		
+	}
+	
+	public static void evidentirajPristup() throws Exception
+	{
+		Connection c = getConnection();
+		PreparedStatement ps = c.prepareStatement(GET_ACCESS);
+		java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+		ps.setDate(1, date);
+		ResultSet rs = ps.executeQuery();
+		if(!rs.next())
+		{
+			ps.close();
+			ps = c.prepareStatement(INSERT_ACCESS);
+			ps.setDate(1, date);
+			ps.setInt(2, 0);
+			ps.executeUpdate();
+			ps.close();
+		}
+		rs.close();
+		ps = c.prepareStatement(LOG_ACCESS);
+		ps.setDate(1, date);
+		ps.executeUpdate();
+		ps.close();
+		c.close();
+		
 		
 	}
 

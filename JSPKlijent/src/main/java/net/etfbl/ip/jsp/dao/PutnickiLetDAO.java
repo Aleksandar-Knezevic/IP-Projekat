@@ -18,7 +18,7 @@ public class PutnickiLetDAO {
 	private static Connection getConnection() throws Exception
 	{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC", "root", "nokia2700");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC&useSSL=false", "root", "nokia2700");
 	}
 	
 	public static ArrayList<PutnickiLetDTO> selectAll() throws Exception

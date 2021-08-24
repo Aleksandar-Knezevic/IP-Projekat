@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.etfbl.ip.jsp.dao.KorisnikDAO;
+
 /**
  * Servlet implementation class WelcomeServlet
  */
@@ -28,8 +30,14 @@ public class WelcomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		try
+		{
+			KorisnikDAO.evidentirajPristup();
+		}
+		catch (Exception e) {
+			e.printStackTrace();// TODO: handle exception
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/pages/index.jsp");
 		dispatcher.forward(request, response);
 	}
