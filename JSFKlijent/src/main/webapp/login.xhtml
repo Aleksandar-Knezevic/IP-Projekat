@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head/>
+    <h:body>
+        <b>Prijava</b><br/>
+        <h:form>
+			<h:outputLabel>Korisnicko ime</h:outputLabel><br/>
+			<h:inputText required="true" value="#{userBean.admin.korisnickoIme}"></h:inputText><br/>
+			<h:outputLabel>Lozinka</h:outputLabel><br/>
+			<h:inputSecret required="true" value="#{userBean.admin.lozinka}"></h:inputSecret><br/>	
+			<h:commandButton value="Prijava" action="#{userBean.login}"></h:commandButton>
+		</h:form>
+    </h:body>
+</html>

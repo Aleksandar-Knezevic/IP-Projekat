@@ -8,7 +8,9 @@
     	<h:outputText value="Unesite naziv drzave"></h:outputText>
     	<hr />
     	<h:form>
-    		<h:inputText value="#{drzaveBean.drzava.nazivDrzave}" required="true"></h:inputText>
+    		<h:inputText value="#{drzaveBean.drzava.nazivDrzave}" required="true" requiredMessage="Obavezno polje">
+    			<f:validateRequired />
+    		</h:inputText>
     		<h:commandButton value="Dodaj" action="#{drzaveBean.dodajDrzavu}"></h:commandButton>
     	</h:form>
 </ui:composition>    
