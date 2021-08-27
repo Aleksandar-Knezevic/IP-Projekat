@@ -8,8 +8,9 @@
     	<h:outputText value="Unesite naziv drzave"></h:outputText>
     	<hr />
     	<h:form>
-    		<h:inputText value="#{drzaveBean.drzava.nazivDrzave}" required="true" requiredMessage="Obavezno polje">
-    			<f:validateRequired />
+    		<h:inputText value="#{drzaveBean.drzava.nazivDrzave}" required="true" requiredMessage="Obavezno polje" id="naziv">
+    			<f:validateRequired for="naziv"></f:validateRequired>
+    			<h:message for="naziv" style="color:red" />
     		</h:inputText>
     		<h:commandButton value="Dodaj" action="#{drzaveBean.dodajDrzavu}"></h:commandButton>
     	</h:form>
