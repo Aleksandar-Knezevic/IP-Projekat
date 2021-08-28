@@ -1,0 +1,15 @@
+.menu{
+    height: 35px;
+    /* background-color: rgb(102, 160, 160); */
+    background-color: #69f0ae;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu-item{
+    width: 100px;
+}
+
+button{
+    width: 100%;
+}

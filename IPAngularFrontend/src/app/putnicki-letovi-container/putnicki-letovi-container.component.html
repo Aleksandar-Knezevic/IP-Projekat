@@ -1,0 +1,9 @@
+<div class="letovi-container">
+    <div class="plus-div" (click)="noviPutnickiLet()">
+            <mat-icon>add_circle_outline</mat-icon>
+            <p style="margin: 0;">Novi let</p>       
+    </div>
+    <app-putnicki-let *ngFor="let l of letovi |async" [putnicki-let]="l">
+
+    </app-putnicki-let>
+</div>

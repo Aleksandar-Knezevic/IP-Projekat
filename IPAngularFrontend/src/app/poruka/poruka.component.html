@@ -1,0 +1,16 @@
+<mat-expansion-panel hideToggle style="width: 400px; margin: 5px;" (afterExpand)="markAsRead()">
+    <mat-expansion-panel-header>
+        <mat-panel-title>{{ poruka.naslov }}</mat-panel-title>
+    <mat-panel-description>{{ poruka.email }}</mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{ poruka.sadrzaj }}</p>
+    <div class="response-form">
+        <form>
+            <mat-form-field color="accent">
+                <mat-label>Odgovorite na poruku</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+            <button mat-raised-button color="accent" style="margin: 5px;">Posalji</button>
+        </form>
+    </div>
+</mat-expansion-panel>

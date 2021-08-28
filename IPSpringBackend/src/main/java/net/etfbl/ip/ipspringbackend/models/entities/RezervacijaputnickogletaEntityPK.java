@@ -46,4 +46,7 @@ public class RezervacijaputnickogletaEntityPK implements Serializable {
         this.korisnikId = korisnikId;
         this.putnickiLetId = putnickiLetId;
     }
+
+    public RezervacijaputnickogletaEntityPK() {
+    }
 }

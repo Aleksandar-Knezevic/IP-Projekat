@@ -1,0 +1,11 @@
+
+
+
+<div class="poruke-container">
+    <mat-form-field color="accent">
+        <mat-label>Pretrazite po sadrzaju</mat-label>
+        <input matInput style="color: aliceblue;" autocomplete="off" #search>
+    </mat-form-field>
+    <button mat-raised-button color="accent" style="margin: 5px;" (click)="searchMessages(search.value)">Pretrazi</button>
+    <app-poruka *ngFor="let p of poruke | async" [msg]="p" [allMsg]="poruke"></app-poruka>
+</div>

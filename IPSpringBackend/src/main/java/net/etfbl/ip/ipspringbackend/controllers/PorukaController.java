@@ -11,6 +11,7 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin()
 @RequestMapping("/poruke")
 public class PorukaController {
 
