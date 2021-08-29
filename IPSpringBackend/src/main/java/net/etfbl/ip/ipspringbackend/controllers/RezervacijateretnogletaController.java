@@ -37,7 +37,7 @@ public class RezervacijateretnogletaController {
     public ResponseEntity accept(@RequestBody RezervacijaKeyModel rezervacijaKeyModel)
     {
         RezervacijateretnogletaEntity rezervacijateretnogletaEntity = rezervacijateretnogletaEntityRepository.getOne(new RezervacijateretnogletaEntityPK(rezervacijaKeyModel.getKorisnikId(), rezervacijaKeyModel.getLetId()));
-        rezervacijateretnogletaEntity.setStatus("Odobrena");
+        rezervacijateretnogletaEntity.setStatus("Prihvacena");
         rezervacijateretnogletaEntityRepository.save(rezervacijateretnogletaEntity);
         return ResponseEntity.ok().build();
     }
@@ -46,7 +46,7 @@ public class RezervacijateretnogletaController {
     public ResponseEntity decline(@RequestBody RezervacijaKeyModel rezervacijaKeyModel)
     {
         RezervacijateretnogletaEntity rezervacijateretnogletaEntity = rezervacijateretnogletaEntityRepository.getOne(new RezervacijateretnogletaEntityPK(rezervacijaKeyModel.getKorisnikId(), rezervacijaKeyModel.getLetId()));
-        rezervacijateretnogletaEntity.setStatus("Odbijena");
+        rezervacijateretnogletaEntity.setStatus("Ponistena");
         rezervacijateretnogletaEntity.setRazlogPonistavanja(rezervacijaKeyModel.getRazlogPonistavanja());
         rezervacijateretnogletaEntityRepository.save(rezervacijateretnogletaEntity);
         return ResponseEntity.ok().build();

@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-putnicke-rezervacije-container',
-  templateUrl: './putnicke-rezervacije-container.component.html',
-  styleUrls: ['./putnicke-rezervacije-container.component.css']
+  selector: 'app-teretna-rezervacija-container',
+  templateUrl: './teretna-rezervacija-container.component.html',
+  styleUrls: ['./teretna-rezervacija-container.component.css']
 })
-export class PutnickeRezervacijeContainerComponent implements OnInit {
+export class TeretnaRezervacijaContainerComponent implements OnInit {
 
-  readonly URL = 'http://localhost:9000/putnicke-rezervacije'
+  readonly URL = 'http://localhost:9000/teretne-rezervacije'
   rezervacije:any;
   selected='Nova';
 
@@ -32,5 +32,6 @@ export class PutnickeRezervacijeContainerComponent implements OnInit {
   {
     this.rezervacije.splice(index, 1);
   }
+
 
 }

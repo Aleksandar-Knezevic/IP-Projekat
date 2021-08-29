@@ -53,4 +53,13 @@ public class RezervacijaKeyModel {
         this.korisnikId = korisnikId;
         this.razlogPonistavanja = razlogPonistavanja;
     }
+
+    @Override
+    public String toString() {
+        return "RezervacijaKeyModel{" +
+                "letId=" + letId +
+                ", korisnikId=" + korisnikId +
+                ", razlogPonistavanja='" + razlogPonistavanja + '\'' +
+                '}';
+    }
 }

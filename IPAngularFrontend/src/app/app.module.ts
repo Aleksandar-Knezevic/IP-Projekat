@@ -29,6 +29,8 @@ import { TeretniLetoviContainerComponent } from './teretni-letovi-container/tere
 import { NoviTeretniLetComponent } from './novi-teretni-let/novi-teretni-let.component';
 import { PutnickeRezervacijeContainerComponent } from './putnicke-rezervacije-container/putnicke-rezervacije-container.component';
 import { PutnickaRezervacijaComponent } from './putnicka-rezervacija/putnicka-rezervacija.component';
+import { TeretnaRezervacijaComponent } from './teretna-rezervacija/teretna-rezervacija.component';
+import { TeretnaRezervacijaContainerComponent } from './teretna-rezervacija-container/teretna-rezervacija-container.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { PutnickaRezervacijaComponent } from './putnicka-rezervacija/putnicka-re
     NoviTeretniLetComponent,
     PutnickeRezervacijeContainerComponent,
     PutnickaRezervacijaComponent,
+    TeretnaRezervacijaComponent,
+    TeretnaRezervacijaContainerComponent,
   ],
   imports: [
     BrowserModule,

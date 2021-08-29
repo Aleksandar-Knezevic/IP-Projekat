@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-putnicka-rezervacija',
-  templateUrl: './putnicka-rezervacija.component.html',
-  styleUrls: ['./putnicka-rezervacija.component.css']
+  selector: 'app-teretna-rezervacija',
+  templateUrl: './teretna-rezervacija.component.html',
+  styleUrls: ['./teretna-rezervacija.component.css']
 })
-export class PutnickaRezervacijaComponent implements OnInit {
+export class TeretnaRezervacijaComponent implements OnInit {
 
-  readonly ACCEPT_URL = 'http://localhost:9000/putnicke-rezervacije/accept';
-  readonly DECLINE_URL = 'http://localhost:9000/putnicke-rezervacije/decline';
+  readonly ACCEPT_URL = 'http://localhost:9000/teretne-rezervacije/accept';
+  readonly DECLINE_URL = 'http://localhost:9000/teretne-rezervacije/decline';
 
   @Input('rez') rezervacija:any;
   @Output('odobravanje') odobravanje = new EventEmitter<any>();
@@ -22,8 +22,8 @@ export class PutnickaRezervacijaComponent implements OnInit {
   odobriLet()
   {
     let keyModel={
-      letId:this.rezervacija.korisnikId,
-      korisnikId:this.rezervacija.putnickiLetId,
+      letId:this.rezervacija.teretniLetId,
+      korisnikId:this.rezervacija.korisnikId,
       razlogPonistavanja:null
     }
     this.http.put(this.ACCEPT_URL, keyModel).subscribe();
@@ -33,8 +33,8 @@ export class PutnickaRezervacijaComponent implements OnInit {
   ponistiLet(razlog)
   {
     let keyModel={
-      letId:this.rezervacija.korisnikId,
-      korisnikId:this.rezervacija.putnickiLetId,
+      letId:this.rezervacija.teretniLetId,
+      korisnikId:this.rezervacija.korisnikId,
       razlogPonistavanja:razlog.value
     }
     this.http.put(this.DECLINE_URL, keyModel).subscribe();

@@ -1,5 +1,5 @@
 <div class="rezervacije-div">
-    <h3 style="color: aliceblue; font-weight: 450; margin-top: 10px;">Putnicke rezervacije</h3>
+    <h3 style="color: aliceblue; font-weight: 450; margin-top: 10px;">Teretne rezervacije</h3>
     <mat-form-field color="accent" class="select-item">
         <mat-label>Tip rezervacije</mat-label>
         <mat-select [(value)]="selected" (valueChange)="updateRezervacije($event)">
@@ -9,6 +9,6 @@
         </mat-select>
     </mat-form-field>
     <div class="rezervacije-container" *ngFor="let r of rezervacije; let i=index;">
-        <app-putnicka-rezervacija [rez]="r" (odobravanje)="odobriLet(i)" (ponistavanje)="ponistiLet(i)"></app-putnicka-rezervacija>
+        <app-teretna-rezervacija [rez]="r" (odobravanje)="odobriLet(i)" (ponistavanje)="ponistiLet(i)"></app-teretna-rezervacija>
     </div>
 </div>

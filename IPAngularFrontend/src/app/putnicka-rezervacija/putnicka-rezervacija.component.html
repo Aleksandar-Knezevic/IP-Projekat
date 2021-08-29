@@ -1,19 +1,34 @@
 <div class="rezervacija-container">
-    <mat-card class="card">
-        <div class="info-box">
-            <div>Korisnik</div>
-            <div style="font-size: small;">{{rezervacija.korisnikByKorisnikId.ime}}</div>
-        </div>
-        <div class="info-box">
-            <div>Broj leta</div>
-            <div style="font-size: small;">{{rezervacija.putnickiletByPutnickiLetId.id}}</div>
-        </div>
-        <div class="info-box">
-            <div>Broj mjesta</div>
-            <div style="font-size: small;">{{rezervacija.brojMjesta}}</div>
-        </div>
+        <mat-expansion-panel hideToggle class="expansion-panel">
+            <mat-expansion-panel-header class="expansion-header">
+                    <div class="card">
+                        <div class="info-box">
+                            <div>Korisnik</div>
+                            <div style="font-size: small;">{{rezervacija.korisnikByKorisnikId.korisnickoIme}}</div>
+                        </div>
+                        <div class="info-box">
+                            <div>Broj leta</div>
+                            <div style="font-size: small;">{{rezervacija.putnickiletByPutnickiLetId.id}}</div>
+                        </div>
+                        <div class="info-box">
+                            <div>Broj mjesta</div>
+                            <div style="font-size: small;">{{rezervacija.brojMjesta}}</div>
+                        </div>
+                        <div class="accept-button" (click)="odobriLet()" *ngIf="rezervacija.status=='Nova'">Prihvati</div>
+                    </div>
+            </mat-expansion-panel-header>
+            <div class="expansion-content" *ngIf="rezervacija.status=='Nova'">
+                <mat-form-field color="accent">
+                    <mat-label>Razlog ponistavanja</mat-label>
+                    <textarea matInput #razlog></textarea>
+                </mat-form-field>
+                <div class="decline-button" (click)="ponistiLet(razlog)">Ponisti</div>
+            </div>
+            <div *ngIf="rezervacija.status=='Ponistena'">
+                Razlog: {{rezervacija.razlogPonistavanja}}
+            </div>
+        </mat-expansion-panel>
         
-        <div class="accept-button">Prihvati</div>
-        <div class="decline-button">Ponisti</div>
-    </mat-card>
+        
+    <!-- </mat-card> -->
 </div>

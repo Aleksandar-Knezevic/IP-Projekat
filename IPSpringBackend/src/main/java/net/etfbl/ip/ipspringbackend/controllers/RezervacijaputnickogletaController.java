@@ -36,8 +36,9 @@ public class RezervacijaputnickogletaController {
     @PutMapping("/accept")
     public ResponseEntity accept(@RequestBody RezervacijaKeyModel model)
     {
-        RezervacijaputnickogletaEntity rezervacijaputnickogletaEntity = rezervacijaputnickogletaEntityRepository.getOne(new RezervacijaputnickogletaEntityPK(model.getKorisnikId(), model.getLetId()));
-        rezervacijaputnickogletaEntity.setStatus("Odobrena");
+        RezervacijaputnickogletaEntity rezervacijaputnickogletaEntity = rezervacijaputnickogletaEntityRepository.getOne(new RezervacijaputnickogletaEntityPK(model.getLetId(), model.getKorisnikId()));
+        rezervacijaputnickogletaEntity.setStatus("Prihvacena");
+        rezervacijaputnickogletaEntity.setRazlogPonistavanja(null);
         rezervacijaputnickogletaEntityRepository.save(rezervacijaputnickogletaEntity);
         return ResponseEntity.ok().build();
     }
@@ -45,8 +46,8 @@ public class RezervacijaputnickogletaController {
     @PutMapping("/decline")
     public ResponseEntity decline(@RequestBody RezervacijaKeyModel model)
     {
-        RezervacijaputnickogletaEntity rezervacijaputnickogletaEntity = rezervacijaputnickogletaEntityRepository.getOne(new RezervacijaputnickogletaEntityPK(model.getKorisnikId(), model.getLetId()));
-        rezervacijaputnickogletaEntity.setStatus("Odbijena");
+        RezervacijaputnickogletaEntity rezervacijaputnickogletaEntity = rezervacijaputnickogletaEntityRepository.getOne(new RezervacijaputnickogletaEntityPK(model.getLetId(), model.getKorisnikId()));
+        rezervacijaputnickogletaEntity.setStatus("Ponistena");
         rezervacijaputnickogletaEntity.setRazlogPonistavanja(model.getRazlogPonistavanja());
         rezervacijaputnickogletaEntityRepository.save(rezervacijaputnickogletaEntity);
         return ResponseEntity.ok().build();

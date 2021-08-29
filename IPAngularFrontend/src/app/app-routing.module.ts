@@ -6,6 +6,7 @@ import { NoviPutnickiLetComponent } from './novi-putnicki-let/novi-putnicki-let.
 import { TeretniLetoviContainerComponent } from './teretni-letovi-container/teretni-letovi-container.component';
 import { NoviTeretniLetComponent } from './novi-teretni-let/novi-teretni-let.component';
 import { PutnickeRezervacijeContainerComponent } from './putnicke-rezervacije-container/putnicke-rezervacije-container.component';
+import { TeretnaRezervacijaContainerComponent } from './teretna-rezervacija-container/teretna-rezervacija-container.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'putnicke-rezervacije',
     component: PutnickeRezervacijeContainerComponent
+  },
+  {
+    path: 'teretne-rezervacije',
+    component: TeretnaRezervacijaContainerComponent
   }
 ];
 

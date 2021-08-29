@@ -1,0 +1,34 @@
+<div class="rezervacija-container">
+    <mat-expansion-panel hideToggle class="expansion-panel">
+        <mat-expansion-panel-header class="expansion-header">
+                <div class="card">
+                    <div class="info-box">
+                        <div>Korisnik</div>
+                        <div style="font-size: small;">{{rezervacija.korisnikByKorisnikId.korisnickoIme}}</div>
+                    </div>
+                    <div class="info-box">
+                        <div>Broj leta</div>
+                        <div style="font-size: small;">{{rezervacija.teretniletByTeretniLetId.id}}</div>
+                    </div>
+                    <div class="info-box">
+                        <div>Opis tereta</div>
+                        <div style="font-size: small;">{{rezervacija.teretniletByTeretniLetId.opisTereta}}</div>
+                    </div>
+                    <div class="accept-button" (click)="odobriLet()" *ngIf="rezervacija.status=='Nova'">Prihvati</div>
+                </div>
+        </mat-expansion-panel-header>
+        <div class="expansion-content" *ngIf="rezervacija.status=='Nova'">
+            <mat-form-field color="accent">
+                <mat-label>Razlog ponistavanja</mat-label>
+                <textarea matInput #razlog></textarea>
+            </mat-form-field>
+            <div class="decline-button" (click)="ponistiLet(razlog)">Ponisti</div>
+        </div>
+        <div *ngIf="rezervacija.status=='Ponistena'">
+            Razlog: {{rezervacija.razlogPonistavanja}}
+        </div>
+    </mat-expansion-panel>
+    
+    
+<!-- </mat-card> -->
+</div>
