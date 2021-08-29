@@ -1,0 +1,11 @@
+.rezervacije-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.select-item{
+    width: 200px;
+    margin: 10px;
+}

@@ -10,13 +10,13 @@
         <button mat-raised-button [matMenuTriggerFor]="menuLetovi">Letovi</button>
         <mat-menu #menuLetovi="matMenu"> 
             <a routerLink="/putnicki-letovi"><button mat-menu-item>Putnicki letovi</button></a>
-            <a><button mat-menu-item>Teretni letovi</button></a>
+            <a routerLink="/teretni-letovi"><button mat-menu-item>Teretni letovi</button></a>
         </mat-menu>
     </div>
     <div class="menu-item">
         <button mat-raised-button [matMenuTriggerFor]="menuRezervacije">Rezervacije</button>
         <mat-menu #menuRezervacije="matMenu">
-            <a><button mat-menu-item>Putnicke rezervacije</button></a>
+            <a routerLink="/putnicke-rezervacije"><button mat-menu-item>Putnicke rezervacije</button></a>
             <a><button mat-menu-item>Teretne rezervacije</button></a>
         </mat-menu>
     </div>

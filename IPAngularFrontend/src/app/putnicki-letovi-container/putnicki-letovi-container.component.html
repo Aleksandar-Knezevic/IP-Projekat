@@ -1,9 +1,10 @@
 <div class="letovi-container">
+    <h3 style="color: aliceblue; font-weight: 500; margin-bottom: 0; margin-top: 10px;">Putnicki letovi</h3>
     <div class="plus-div" (click)="noviPutnickiLet()">
             <mat-icon>add_circle_outline</mat-icon>
             <p style="margin: 0;">Novi let</p>       
     </div>
-    <app-putnicki-let *ngFor="let l of letovi |async" [putnicki-let]="l">
+    <app-putnicki-let *ngFor="let l of letovi; let i=index;" [putnicki-let]="l" [id]="l.id" (brisanje)="obrisiLet(i)">
 
     </app-putnicki-let>
 </div>

@@ -1,0 +1,11 @@
+<div class="rezervacije-container" *ngFor="let r of rezervacije">
+    <mat-form-field color="accent" class="select-item">
+        <mat-label>Tip rezervacije</mat-label>
+        <mat-select>
+            <mat-option value="Nova">Nova</mat-option>
+            <mat-option value="Ponistena">Ponistena</mat-option>
+            <mat-option value="Prihvacena">Prihvacena</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <app-putnicka-rezervacija [rez]="r"></app-putnicka-rezervacija>
+</div>

@@ -1,18 +1,18 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-novi-putnicki-let',
-  templateUrl: './novi-putnicki-let.component.html',
-  styleUrls: ['./novi-putnicki-let.component.css']
+  selector: 'app-novi-teretni-let',
+  templateUrl: './novi-teretni-let.component.html',
+  styleUrls: ['./novi-teretni-let.component.css']
 })
-export class NoviPutnickiLetComponent implements OnInit {
+export class NoviTeretniLetComponent implements OnInit {
 
   readonly STATE_URL = 'http://localhost:9000/drzave';
   readonly CITY_URL = 'http://localhost:9000/gradovi';
-  readonly POST_URL = 'http://localhost:9000/putnicki-letovi';
+  readonly POST_URL = 'http://localhost:9000/teretni-letovi';
   noviPutnickiLetForm: FormGroup;
   @Input('drzave') drzave:any;
   @Input('polazniGradovi') polazniGradovi:any;
@@ -33,7 +33,6 @@ export class NoviPutnickiLetComponent implements OnInit {
   {
       this.noviPutnickiLetForm = this.fb.group({
         datumiLeta: this.fb.array([this.fb.control('')]),
-        brojMjesta: 'Broj mjesta',
         vrijemePolaska: '',
         vrijemeDolaska: '',
         polaznaDrzava: 'Polazna drzava',
@@ -83,7 +82,6 @@ export class NoviPutnickiLetComponent implements OnInit {
       noviLet.datumiLeta.forEach(element => {
         this.http.post(this.POST_URL, {
           datumLeta: element,
-          brojMjesta: noviLet.brojMjesta,
           polazniGrad: noviLet.polazniGrad,
           odredisniGrad: noviLet.odredisniGrad,
           polaznaDrzava: noviLet.polaznaDrzava,
@@ -95,7 +93,7 @@ export class NoviPutnickiLetComponent implements OnInit {
       });
       
       this.formValid=false;
-      this.router.navigate(['./putnicki-letovi'])
+      this.router.navigate(['./teretni-letovi'])
       
       
     }

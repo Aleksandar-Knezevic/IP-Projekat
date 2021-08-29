@@ -13,13 +13,18 @@ export class PutnickiLetoviContainerComponent implements OnInit {
   readonly URL = "http://localhost:9000/putnicki-letovi";
   constructor(private http: HttpClient, private router:Router) { }
 
-  ngOnInit(): void {
-    this.letovi = this.http.get(this.URL);
+  async ngOnInit(): Promise<void> {
+    this.letovi = await this.http.get(this.URL).toPromise();
   }
 
   noviPutnickiLet()
   {
     this.router.navigate(['./novi-putnicki-let'])
+  }
+
+  obrisiLet(index)
+  {
+    this.letovi.splice(index, 1);
   }
 
 }

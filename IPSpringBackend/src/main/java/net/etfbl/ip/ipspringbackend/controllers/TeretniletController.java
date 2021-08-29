@@ -1,12 +1,15 @@
 package net.etfbl.ip.ipspringbackend.controllers;
 
-import net.etfbl.ip.ipspringbackend.models.entities.PutnickiletEntity;
+import net.etfbl.ip.ipspringbackend.models.TeretniLetModel;
 import net.etfbl.ip.ipspringbackend.models.entities.TeretniletEntity;
-import net.etfbl.ip.ipspringbackend.repositories.PutnickiletEntityRepository;
+import net.etfbl.ip.ipspringbackend.repositories.DrzavaEntityRepository;
+import net.etfbl.ip.ipspringbackend.repositories.GradEntityRepository;
 import net.etfbl.ip.ipspringbackend.repositories.TeretniletEntityRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -15,10 +18,14 @@ import java.util.List;
 public class TeretniletController {
 
     private final TeretniletEntityRepository teretniletEntityRepository;
+    private final DrzavaEntityRepository drzavaEntityRepository;
+    private final GradEntityRepository gradEntityRepository;
 
-    public TeretniletController(TeretniletEntityRepository teretniletEntityRepository)
+    public TeretniletController(TeretniletEntityRepository teretniletEntityRepository, DrzavaEntityRepository drzavaEntityRepository, GradEntityRepository gradEntityRepository)
     {
         this.teretniletEntityRepository = teretniletEntityRepository;
+        this.drzavaEntityRepository = drzavaEntityRepository;
+        this.gradEntityRepository = gradEntityRepository;
     }
 
     @GetMapping
@@ -34,9 +41,20 @@ public class TeretniletController {
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody TeretniletEntity teretniletEntity)
+    public ResponseEntity create(@RequestBody TeretniLetModel teretniLetModel)
     {
-        teretniletEntityRepository.save(teretniletEntity);
+        TeretniletEntity teretniletEntity = new TeretniletEntity();
+        teretniletEntity.setOpisTereta(null);
+        teretniletEntity.setGradByPolazniGrad(gradEntityRepository.findById(teretniLetModel.getPolazniGrad()).get());
+        teretniletEntity.setStatus(teretniLetModel.getStatus());
+        teretniletEntity.setDrzavaByPolaznaDrzava(drzavaEntityRepository.findById(teretniLetModel.getPolaznaDrzava()).get());
+        teretniletEntity.setDrzavaByOdredisnaDrzava(drzavaEntityRepository.findById(teretniLetModel.getOdredisnaDrzava()).get());
+        teretniletEntity.setDatumLeta(teretniLetModel.getDatumLeta());
+        teretniletEntity.setGradByOdredisniGrad(gradEntityRepository.findById(teretniLetModel.getOdredisniGrad()).get());
+        teretniletEntity.setVrijemePolaska(Time.valueOf(LocalTime.parse(teretniLetModel.getVrijemePolaska())));
+        teretniletEntity.setVrijemeDolaska(Time.valueOf(LocalTime.parse(teretniLetModel.getVrijemeDolaska())));
+
+        teretniletEntityRepository.saveAndFlush(teretniletEntity);
         return ResponseEntity.ok().build();
     }
 

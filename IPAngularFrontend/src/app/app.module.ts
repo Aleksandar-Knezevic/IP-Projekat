@@ -20,6 +20,15 @@ import { PutnickiLetComponent } from './putnicki-let/putnicki-let.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { NoviPutnickiLetComponent } from './novi-putnicki-let/novi-putnicki-let.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TeretniLetComponent } from './teretni-let/teretni-let.component';
+import { TeretniLetoviContainerComponent } from './teretni-letovi-container/teretni-letovi-container.component';
+import { NoviTeretniLetComponent } from './novi-teretni-let/novi-teretni-let.component';
+import { PutnickeRezervacijeContainerComponent } from './putnicke-rezervacije-container/putnicke-rezervacije-container.component';
+import { PutnickaRezervacijaComponent } from './putnicka-rezervacija/putnicka-rezervacija.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +40,11 @@ import { NoviPutnickiLetComponent } from './novi-putnicki-let/novi-putnicki-let.
     PutnickiLetoviContainerComponent,
     PutnickiLetComponent,
     NoviPutnickiLetComponent,
+    TeretniLetComponent,
+    TeretniLetoviContainerComponent,
+    NoviTeretniLetComponent,
+    PutnickeRezervacijeContainerComponent,
+    PutnickaRezervacijaComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,9 +58,15 @@ import { NoviPutnickiLetComponent } from './novi-putnicki-let/novi-putnicki-let.
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

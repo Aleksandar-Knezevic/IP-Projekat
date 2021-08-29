@@ -1,0 +1,19 @@
+<div class="rezervacija-container">
+    <mat-card class="card">
+        <div class="info-box">
+            <div>Korisnik</div>
+            <div style="font-size: small;">{{rezervacija.korisnikByKorisnikId.ime}}</div>
+        </div>
+        <div class="info-box">
+            <div>Broj leta</div>
+            <div style="font-size: small;">{{rezervacija.putnickiletByPutnickiLetId.id}}</div>
+        </div>
+        <div class="info-box">
+            <div>Broj mjesta</div>
+            <div style="font-size: small;">{{rezervacija.brojMjesta}}</div>
+        </div>
+        
+        <div class="accept-button">Prihvati</div>
+        <div class="decline-button">Ponisti</div>
+    </mat-card>
+</div>
