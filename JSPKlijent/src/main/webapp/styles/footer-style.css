@@ -1,0 +1,47 @@
+.form-contact{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.form-contact > *{
+    margin: 3px;
+}
+
+.posalji-dugme{
+    margin:0;
+    margin-bottom: 10px;
+}
+
+.contact-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    width: 400px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.footer{
+    
+    /* background-color: turquoise; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-top: 10px solid white;
+    color: black
+}
+
+.contact-span{
+    color: aliceblue;
+}
+
+.contact-input{
+    border-radius: 5px;
+}

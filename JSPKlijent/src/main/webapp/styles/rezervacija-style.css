@@ -7,58 +7,7 @@
     height: 100vh;
 
 }
-.header{
-    height: 100px;
-    min-height: 100px;
-    background-color: #34a0a4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-}
-.title{
-    font-weight: bold;
-    font-size: 2rem;
-    cursor:pointer;
-}
-
-
-
-
-.login-form{
-    height: 150px;
-    width: 250px;
-    background-color: #D9ED92;
-    position: absolute;
-    z-index: 1;
-    margin-top: 190px;
-    right: 0;
-    visibility: hidden;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.login {
-    width: 70px;
-    height: 40px;
-    background-color: #184E77;
-    cursor: pointer;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 40px;
-    margin-left: auto;
-    margin-right: 20px;
-}
-
-.login-2 {
-    width: 100px;
-    height: 50px;
-    margin-left: auto;
-    
-}
 
 .content{
     flex-grow: 1;
@@ -116,55 +65,5 @@
 	justify-content:center;
 }
 
-.menu-li{
-    width: 10%;
-    height: 100%;
-    min-height: 50px;
-    flex-basis: 170px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.menu-list{
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    min-height: 50px;
-    background-color: #52b69a;
-    align-items: center;
-    margin: 0;
-    flex-wrap: wrap;
-    padding: 0;
-}
 
-.form-contact{
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.form-contact > *{
-    margin: 3px;
-}
-
-.posalji-dugme{
-    margin:0;
-}
-
-.contact-footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer{
-    
-    background-color: turquoise;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
