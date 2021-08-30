@@ -32,6 +32,9 @@ public class PutnickiLetDAO {
 			PutnickiLetDTO putnickiLet = new PutnickiLetDTO(rs.getInt("id"), rs.getDate("datumLeta"), rs.getInt("brojMjesta"), GradDAO.selectOne(rs.getInt("polazniGrad")), GradDAO.selectOne(rs.getInt("odredisniGrad")), DrzavaDAO.selectOne(rs.getInt("polaznaDrzava")), DrzavaDAO.selectOne(rs.getInt("odredisnaDrzava")), rs.getString("status"), rs.getTime("vrijemePolaska"), rs.getTime("vrijemeDolaska"), rs.getInt("brojSlobodnihMjesta"));
 			sviLetovi.add(putnickiLet);
 		}
+		rs.close();
+		s.close();
+		c.close();
 		return sviLetovi;
 	}
 	
@@ -44,6 +47,10 @@ public class PutnickiLetDAO {
 		PutnickiLetDTO putnickiLet = null;
 		if(rs.next())
 			putnickiLet = new PutnickiLetDTO(rs.getInt("id"), rs.getDate("datumLeta"), rs.getInt("brojMjesta"), GradDAO.selectOne(rs.getInt("polazniGrad")), GradDAO.selectOne(rs.getInt("odredisniGrad")), DrzavaDAO.selectOne(rs.getInt("polaznaDrzava")), DrzavaDAO.selectOne(rs.getInt("odredisnaDrzava")), rs.getString("status"), rs.getTime("vrijemePolaska"), rs.getTime("vrijemeDolaska"), rs.getInt("brojSlobodnihMjesta"));
+		
+		rs.close();
+		ps.close();
+		c.close();
 		return putnickiLet;
 	}
 	
@@ -55,6 +62,8 @@ public class PutnickiLetDAO {
 		ps.setInt(1, slobodnaMjesta);
 		ps.setInt(2, id);
 		int affected = ps.executeUpdate();
+		ps.close();
+		c.close();
 		if(affected == 0)
 			return false;
 		else 

@@ -2,22 +2,22 @@
     <div class="menu-item">
         <button mat-raised-button [matMenuTriggerFor]="menuPoruke">Poruke</button>
         <mat-menu #menuPoruke="matMenu">
-            <a routerLink="/poruke/all"><button mat-menu-item>Sve poruke</button></a>
-            <a routerLink="/poruke/unread"><button mat-menu-item>Neprocitane poruke</button></a>
+            <a routerLink="/poruke/all" style="text-decoration: none;"><button mat-menu-item>Sve poruke</button></a>
+            <a routerLink="/poruke/unread" style="text-decoration: none;"><button mat-menu-item>Neprocitane poruke</button></a>
         </mat-menu>
     </div>
     <div class="menu-item">
         <button mat-raised-button [matMenuTriggerFor]="menuLetovi">Letovi</button>
         <mat-menu #menuLetovi="matMenu"> 
-            <a routerLink="/putnicki-letovi"><button mat-menu-item>Putnicki letovi</button></a>
-            <a routerLink="/teretni-letovi"><button mat-menu-item>Teretni letovi</button></a>
+            <a routerLink="/putnicki-letovi" style="text-decoration: none;"><button mat-menu-item>Putnicki letovi</button></a>
+            <a routerLink="/teretni-letovi" style="text-decoration: none;"><button mat-menu-item>Teretni letovi</button></a>
         </mat-menu>
     </div>
     <div class="menu-item">
         <button mat-raised-button [matMenuTriggerFor]="menuRezervacije">Rezervacije</button>
         <mat-menu #menuRezervacije="matMenu">
-            <a routerLink="/putnicke-rezervacije"><button mat-menu-item>Putnicke rezervacije</button></a>
-            <a routerLink="/teretne-rezervacije"><button mat-menu-item>Teretne rezervacije</button></a>
+            <a routerLink="/putnicke-rezervacije" style="text-decoration: none;"><button mat-menu-item>Putnicke rezervacije</button></a>
+            <a routerLink="/teretne-rezervacije" style="text-decoration: none;"><button mat-menu-item>Teretne rezervacije</button></a>
         </mat-menu>
     </div>
 </div>

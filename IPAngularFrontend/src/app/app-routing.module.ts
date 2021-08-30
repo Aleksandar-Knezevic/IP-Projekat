@@ -7,6 +7,10 @@ import { TeretniLetoviContainerComponent } from './teretni-letovi-container/tere
 import { NoviTeretniLetComponent } from './novi-teretni-let/novi-teretni-let.component';
 import { PutnickeRezervacijeContainerComponent } from './putnicke-rezervacije-container/putnicke-rezervacije-container.component';
 import { TeretnaRezervacijaContainerComponent } from './teretna-rezervacija-container/teretna-rezervacija-container.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuardGuard } from './login-guard.guard';
+
 
 const routes: Routes = [
   {
@@ -14,31 +18,47 @@ const routes: Routes = [
     children: [
       {path:'all', component: PorukeContainerComponent},
       {path:'unread', component:PorukeContainerComponent}
-    ]
+    ],
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'putnicki-letovi',
-    component: PutnickiLetoviContainerComponent
+    component: PutnickiLetoviContainerComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'novi-putnicki-let',
-    component: NoviPutnickiLetComponent
+    component: NoviPutnickiLetComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'teretni-letovi',
-    component: TeretniLetoviContainerComponent
+    component: TeretniLetoviContainerComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'novi-teretni-let',
-    component: NoviTeretniLetComponent
+    component: NoviTeretniLetComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'putnicke-rezervacije',
-    component: PutnickeRezervacijeContainerComponent
+    component: PutnickeRezervacijeContainerComponent,
+    canActivate: [LoginGuardGuard]
   },
   {
     path: 'teretne-rezervacije',
-    component: TeretnaRezervacijaContainerComponent
+    component: TeretnaRezervacijaContainerComponent,
+    canActivate: [LoginGuardGuard]
+  },
+  {
+    path:'login',
+    component: LoginComponent
+  },
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [LoginGuardGuard]
   }
 ];
 

@@ -36,7 +36,9 @@ public class RezervacijaTeretnogLetaDAO {
 			RezervacijaTeretnogLetaDTO rezervacija = new RezervacijaTeretnogLetaDTO(KorisnikDAO.selectOne(rs.getInt("korisnik_id")), TeretniLetDAO.selectOne(rs.getInt("teretniLet_id")), rs.getString("status"), rs.getDate("datumKreiranja"), rs.getString("razlogPonistavanja"));
 			sveRezervacije.add(rezervacija);
 		}
-
+		rs.close();
+		s.close();
+		c.close();
 		return sveRezervacije;
 	}
 	
@@ -50,7 +52,9 @@ public class RezervacijaTeretnogLetaDAO {
 		RezervacijaTeretnogLetaDTO rezervacija = null;
 		if(rs.next())
 			rezervacija = new RezervacijaTeretnogLetaDTO(KorisnikDAO.selectOne(rs.getInt("korisnik_id")), TeretniLetDAO.selectOne(rs.getInt("teretniLet_id")), rs.getString("status"), rs.getDate("datumKreiranja"), rs.getString("razlogPonistavanja"));
-
+		rs.close();
+		ps.close();
+		c.close();
 		return rezervacija;
 	}
 	
@@ -64,7 +68,8 @@ public class RezervacijaTeretnogLetaDAO {
 		ps.setDate(4, new java.sql.Date(System.currentTimeMillis()));
 		ps.setString(5, "");
 		int affected = ps.executeUpdate();
-
+		ps.close();
+		c.close();
 		if(affected == 0)
 			return false;
 		else
@@ -88,6 +93,8 @@ public class RezervacijaTeretnogLetaDAO {
 		ps.setInt(1, korisnikId);
 		ps.setInt(2, teretniLetId);
 		int affected = ps.executeUpdate();
+		ps.close();
+		c.close();
 		if(affected==0)
 			return false;
 		else

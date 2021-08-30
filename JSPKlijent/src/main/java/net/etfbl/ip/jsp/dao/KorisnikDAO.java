@@ -36,6 +36,9 @@ public class KorisnikDAO {
 			KorisnikDTO korisnik = new KorisnikDTO(rs.getInt("id"), rs.getString("ime"), rs.getString("prezime"), rs.getString("korisnickoIme"), rs.getString("email"), rs.getString("lozinka"), rs.getString("drzava"), rs.getString("tipNaloga"), rs.getString("adresa"));
 			korisnici.add(korisnik);
 		}
+		rs.close();
+		s.close();
+		c.close();
 		return korisnici;
 	}
 	
@@ -48,6 +51,9 @@ public class KorisnikDAO {
 		KorisnikDTO korisnik = null;
 		if(rs.next())
 			korisnik = new KorisnikDTO(rs.getInt("id"), rs.getString("ime"), rs.getString("prezime"), rs.getString("korisnickoIme"), rs.getString("email"), rs.getString("lozinka"), rs.getString("drzava"), rs.getString("tipNaloga"), rs.getString("adresa"));
+		rs.close();
+		ps.close();
+		c.close();
 		return korisnik;
 	}
 	
@@ -66,9 +72,22 @@ public class KorisnikDAO {
 		ps.executeUpdate();
 		ResultSet rs = ps.getGeneratedKeys();
 		if(rs.next())
-			return rs.getInt(1);
+		{
+			int result = rs.getInt(1);
+			rs.close();
+			ps.close();
+			c.close();
+			return result;
+		}
+			
 		else
+		{
+			rs.close();
+			ps.close();
+			c.close();
 			return -1;
+		}
+			
 		
 	}
 	
@@ -82,6 +101,10 @@ public class KorisnikDAO {
 		KorisnikDTO korisnik = null;
 		if(rs.next())
 			korisnik = new KorisnikDTO(rs.getInt("id"), rs.getString("ime"), rs.getString("prezime"), rs.getString("korisnickoIme"), rs.getString("email"), rs.getString("lozinka"), rs.getString("drzava"), rs.getString("tipNaloga"), rs.getString("adresa"));
+		
+		rs.close();
+		ps.close();
+		c.close();
 		return korisnik;
 		
 	}

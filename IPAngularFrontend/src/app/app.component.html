@@ -1,4 +1,4 @@
 
 <app-header></app-header>
-<app-menu></app-menu>
+<app-menu *ngIf="loginService.isLogged"></app-menu>
 <router-outlet></router-outlet>

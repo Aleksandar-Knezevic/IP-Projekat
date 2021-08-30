@@ -13,6 +13,7 @@ export class PorukaComponent implements OnInit {
   @Input('allMsg') svePoruke:any[];
   constructor(private http: HttpClient) { }
   readonly URL:string = 'http://localhost:9000/poruke/mark-as-read/';
+  readonly RESPOND_URL = 'http://localhost:9000/poruke/respond';
 
   ngOnInit(): void {
   }
@@ -25,6 +26,15 @@ export class PorukaComponent implements OnInit {
       
     }
       
+  }
+
+  sendMail(sadrzaj)
+  {
+    this.http.post(this.RESPOND_URL, {
+      email:this.poruka.email,
+      body:sadrzaj
+    }).subscribe();
+    
   }
 
 }

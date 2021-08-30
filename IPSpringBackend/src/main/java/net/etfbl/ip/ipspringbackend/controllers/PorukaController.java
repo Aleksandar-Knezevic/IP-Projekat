@@ -1,13 +1,16 @@
 package net.etfbl.ip.ipspringbackend.controllers;
 
-import com.mysql.cj.util.StringUtils;
+import net.etfbl.ip.ipspringbackend.models.MailResponseModel;
 import net.etfbl.ip.ipspringbackend.models.entities.PorukaEntity;
 import net.etfbl.ip.ipspringbackend.repositories.PorukaEntityRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.internet.MimeMessage;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 @RestController
@@ -16,10 +19,12 @@ import java.util.stream.Collectors;
 public class PorukaController {
 
     private final PorukaEntityRepository porukaEntityRepository;
+    private final JavaMailSender emailSender;
 
-    public PorukaController(PorukaEntityRepository porukaEntityRepository)
+    public PorukaController(PorukaEntityRepository porukaEntityRepository, JavaMailSender emailSender)
     {
         this.porukaEntityRepository = porukaEntityRepository;
+        this.emailSender = emailSender;
     }
 
     @GetMapping
@@ -57,6 +62,27 @@ public class PorukaController {
                              .stream()
                              .filter(e -> e.getSadrzaj().toLowerCase().contains(content.toLowerCase()))
                              .collect(Collectors.toList()));
+    }
+
+    @PostMapping("/respond")
+    public ResponseEntity respondToMail(@RequestBody MailResponseModel model)
+    {
+        try
+        {
+            MimeMessage message = emailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            helper.setFrom("snisafechat2021@gmail.com");
+            helper.setTo(model.getEmail());
+            helper.setSubject("Odgovor");
+            helper.setText(model.getBody());
+            emailSender.send(message);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.ok().build();
     }
 
 

@@ -1,0 +1,16 @@
+<div class="login-container">
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit()" autocomplete="off">
+        <h3 style="color: aliceblue; font-weight: 450;">Prijava</h3>
+        <mat-form-field color="accent">
+            <mat-label>Korisnicko ime</mat-label>
+            <input matInput formControlName="username" style="color: aliceblue;">
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <mat-label>Lozinka</mat-label>
+            <input matInput formControlName="password" type="password" style="color: aliceblue;">
+        </mat-form-field>
+        <button mat-raised-button color="accent" type="submit">Prijava</button>
+        <p style="color: red; font-weight: 450;" *ngIf="validLogin">Neuspjesna prijava</p>
+    </form>
+
+</div>

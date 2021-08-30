@@ -36,6 +36,9 @@ public class RezervacijaPutnickogLetaDAO {
 			RezervacijaPutnickogLetaDTO rezervacija = new RezervacijaPutnickogLetaDTO(KorisnikDAO.selectOne(rs.getInt("korisnik_id")), PutnickiLetDAO.selectOne(rs.getInt("putnickiLet_id")), rs.getString("status"), rs.getDate("datumKreiranja"), rs.getString("razlogPonistavanja"), rs.getInt("brojMjesta"));
 			sveRezervacije.add(rezervacija);
 		}
+		rs.close();
+		s.close();
+		c.close();
 		return sveRezervacije;
 	}
 	
@@ -49,6 +52,10 @@ public class RezervacijaPutnickogLetaDAO {
 		RezervacijaPutnickogLetaDTO rezervacija = null;
 		if(rs.next())
 			rezervacija = new RezervacijaPutnickogLetaDTO(KorisnikDAO.selectOne(rs.getInt("korisnik_id")), PutnickiLetDAO.selectOne(rs.getInt("putnickiLet_id")), rs.getString("status"), rs.getDate("datumKreiranja"), rs.getString("razlogPonistavanja"), rs.getInt("brojMjesta"));
+		
+		rs.close();
+		ps.close();
+		c.close();
 		return rezervacija;
 	}
 	
@@ -63,7 +70,8 @@ public class RezervacijaPutnickogLetaDAO {
 		ps.setString(5, "");
 		ps.setInt(6,  brojMjesta);
 		int affected = ps.executeUpdate();
-
+		ps.close();
+		c.close();
 		if(affected == 0)
 			return false;
 		else
@@ -88,6 +96,8 @@ public class RezervacijaPutnickogLetaDAO {
 		ps.setInt(1, korisnikId);
 		ps.setInt(2, letId);
 		int affected = ps.executeUpdate();
+		ps.close();
+		c.close();
 		if(affected==0)
 			return false;
 		else

@@ -1,3 +1,7 @@
 <div class="header">
-    <p>ETFBL Aero</p>
+    <a routerLink="/" style="cursor: pointer; text-decoration: none; color: black;"><p>ETFBL Aero</p></a>
+    <div class="logout" *ngIf="loginService.isLogged" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <p>Odjava</p>
+    </div>
 </div>

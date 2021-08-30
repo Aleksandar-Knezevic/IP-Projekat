@@ -1,13 +1,16 @@
 .menu{
-    height: 35px;
+    height: 40px;
     /* background-color: rgb(102, 160, 160); */
-    background-color: #69f0ae;
+    /* background-color: #69f0ae; */
+    background-color: aliceblue;
     display: flex;
     justify-content: space-evenly;
+
 }
 
 .menu-item{
     width: 100px;
+    margin-bottom: 5px;
 }
 
 button{

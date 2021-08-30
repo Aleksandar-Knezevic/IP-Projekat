@@ -32,6 +32,9 @@ public class TeretniLetDAO {
 			TeretniLetDTO teretniLet = new TeretniLetDTO(rs.getInt("id"), rs.getDate("datumLeta"), rs.getString("opisTereta"), GradDAO.selectOne(rs.getInt("polazniGrad")), GradDAO.selectOne(rs.getInt("odredisniGrad")), DrzavaDAO.selectOne(rs.getInt("polaznaDrzava")), DrzavaDAO.selectOne(rs.getInt("odredisnaDrzava")), rs.getString("status"), rs.getTime("vrijemePolaska"), rs.getTime("vrijemeDolaska"));
 			sviLetovi.add(teretniLet);
 		}
+		rs.close();
+		s.close();
+		c.close();
 
 		return sviLetovi;
 	}
@@ -46,6 +49,9 @@ public class TeretniLetDAO {
 		if(rs.next())
 			teretniLet = new TeretniLetDTO(rs.getInt("id"), rs.getDate("datumLeta"), rs.getString("opisTereta"), GradDAO.selectOne(rs.getInt("polazniGrad")), GradDAO.selectOne(rs.getInt("odredisniGrad")), DrzavaDAO.selectOne(rs.getInt("polaznaDrzava")), DrzavaDAO.selectOne(rs.getInt("odredisnaDrzava")), rs.getString("status"), rs.getTime("vrijemePolaska"), rs.getTime("vrijemeDolaska"));
 
+		rs.close();
+		ps.close();
+		c.close();
 		return teretniLet;
 	}
 	
@@ -56,6 +62,8 @@ public class TeretniLetDAO {
 		ps.setString(1, opisTereta);
 		ps.setInt(2, id);
 		int affected = ps.executeUpdate();
+		ps.close();
+		c.close();
 		if(affected==0)
 			return false;
 		else 

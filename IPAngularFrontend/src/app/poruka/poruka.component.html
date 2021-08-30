@@ -8,9 +8,9 @@
         <form>
             <mat-form-field color="accent">
                 <mat-label>Odgovorite na poruku</mat-label>
-                <textarea matInput></textarea>
+                <textarea matInput #body></textarea>
             </mat-form-field>
-            <button mat-raised-button color="accent" style="margin: 5px;">Posalji</button>
+            <button mat-raised-button color="accent" style="margin: 5px;" (click)="sendMail(body.value); body.value=''">Posalji</button>
         </form>
     </div>
 </mat-expansion-panel>

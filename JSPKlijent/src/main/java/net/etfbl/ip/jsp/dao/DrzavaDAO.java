@@ -31,6 +31,9 @@ public class DrzavaDAO {
 			DrzavaDTO d = new DrzavaDTO(rs.getInt("id"), rs.getString("nazivDrzave"));
 			sveDrzave.add(d);
 		}
+		rs.close();
+		s.close();
+		c.close();
 		return sveDrzave;
 	}
 	
@@ -43,6 +46,9 @@ public class DrzavaDAO {
 		DrzavaDTO drzava = null;
 		if(rs.next())
 			drzava = new DrzavaDTO(rs.getInt("id"), rs.getString("nazivDrzave"));
+		rs.close();
+		ps.close();
+		c.close();
 		return drzava;
 		
 	}

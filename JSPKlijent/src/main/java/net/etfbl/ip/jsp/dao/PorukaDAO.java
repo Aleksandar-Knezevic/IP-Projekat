@@ -22,6 +22,8 @@ public class PorukaDAO {
 		ps.setString(3, sadrzaj);
 		ps.setString(4, "Neprocitana");
 		int affected = ps.executeUpdate();
+		ps.close();
+		c.close();
 		if(affected == 0)
 			return false;
 		else
