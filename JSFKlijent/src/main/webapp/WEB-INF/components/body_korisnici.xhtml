@@ -10,7 +10,7 @@
 		<h:commandButton value="Novi korisnik" action="#{korisniciBean.noviKorisnik}"></h:commandButton>
 		<h:dataTable value="${korisniciBean.sviKorisnici}" var="korisnik"
 			style="width: 100%; text-align:center;">
-			<h:column >
+			<h:column>
 				<f:facet name="header">ID korisnika</f:facet>
 				<h:outputText value="${korisnik.id}">
 				</h:outputText>

@@ -4,25 +4,25 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head />
 <ui:composition>
-	<h:form>
+	<h:form style="display:flex; flex-direction:column; align-items:center;">
 		<hr/>
     	<h:outputText value="Ime"></h:outputText>
-    	<h:inputText value="#{korisniciBean.korisnik.ime}" required="true"></h:inputText>
+    	<h:inputText value="#{korisniciBean.korisnik.ime}"></h:inputText>
     	<hr/>
     	<h:outputText value="Prezime"></h:outputText>
-    	<h:inputText value="#{korisniciBean.korisnik.prezime}" required="true"></h:inputText>
+    	<h:inputText value="#{korisniciBean.korisnik.prezime}"></h:inputText>
     	<hr/>
     	<h:outputText value="Korisnicko ime"></h:outputText>
-    	<h:inputText value="#{korisniciBean.korisnik.korisnickoIme}" required="true"></h:inputText>
+    	<h:inputText value="#{korisniciBean.korisnik.korisnickoIme}"></h:inputText>
     	<hr/>
     	<h:outputText value="Email"></h:outputText>
-    	<h:inputText value="#{korisniciBean.korisnik.email}" required="true"></h:inputText>
+    	<h:inputText value="#{korisniciBean.korisnik.email}"></h:inputText>
     	<hr/>
     	<h:outputText value="Lozinka"></h:outputText>
-    	<h:inputText value="#{korisniciBean.korisnik.lozinka}" required="true"></h:inputText>
+    	<h:inputText value="#{korisniciBean.korisnik.lozinka}"></h:inputText>
     	<hr/>
     	<h:outputText value="Drzava"></h:outputText>
-    	<h:selectOneMenu value="#{korisniciBean.korisnik.drzava}" required="true">
+    	<h:selectOneMenu value="#{korisniciBean.korisnik.drzava}">
     		<f:selectItems value="#{korisniciBean.dostupneDrzave}" var="drzava" itemValue="#{drzava.name}" itemLabel="#{drzava.name}"></f:selectItems>
     	</h:selectOneMenu>
     	<h:commandButton value="Dohvati dostupne drzave" action="#{korisniciBean.dohvatiDostupneDrzave}"></h:commandButton>
@@ -33,7 +33,7 @@
     		<f:selectItem itemValue="Teretni" itemLabel="Teretni"></f:selectItem>
     	</h:selectOneMenu>
     	<hr/>
-    	<h:outputText value="Adresa" required="true"></h:outputText>
+    	<h:outputText value="Adresa"></h:outputText>
     	<h:inputText value="#{korisniciBean.korisnik.adresa}"></h:inputText>
     	<hr/>
     	

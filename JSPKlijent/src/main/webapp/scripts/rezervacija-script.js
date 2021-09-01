@@ -3,11 +3,7 @@ var visibility = 'visible';
 
 async function init()
 {
-	let items = document.getElementsByClassName('menu-li');
-    for (let item of items) {
-        item.addEventListener('mouseenter', event => changeBackground('#1a759f', 'enter', event));
-        item.addEventListener('mouseleave', event => changeBackground('#52b69a', 'exit', event));
-    }
+
     await popuniDrzave();
     document.getElementById('polaznaDrzava').selectedIndex="0";
     document.getElementById('odredisnaDrzava').selectedIndex="0";
@@ -30,7 +26,7 @@ function selectLet(div)
     selectedFlight=div.id;
     for(var item of letovi.children)
         item.style.backgroundColor = '';
-    div.style.backgroundColor = 'violet';
+    div.style.backgroundColor = 'rgba(0,0,0,0.9)';
 }
 
 
@@ -120,11 +116,12 @@ function obradiRezervaciju()
     {
         var brojMjesta = document.getElementById('brojMjesta').value;
         var brojMjestaNum = parseInt(document.getElementById('brojMjesta').value);
-        var message = document.getElementById('errorMessage');
+        //var message = document.getElementById('errorMessage');
         var freeSpace = parseInt(document.getElementById('free-space-'+selectedFlight).innerText);
         if(brojMjesta==='' || brojMjestaNum>freeSpace)
         {
-            message.innerText="Greska. Provjerite broj mjesta";
+            alert("Greska. Provjerite broj mjesta");
+            // message.innerText="Greska. Provjerite broj mjesta";
             return false;
         }
         

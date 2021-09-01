@@ -10,11 +10,7 @@ function showLogin() {
 
 function init()
 {
-	let items = document.getElementsByClassName('menu-li');
-    for (let item of items) {
-        item.addEventListener('mouseenter', event => changeBackground('#1a759f', 'enter', event));
-        item.addEventListener('mouseleave', event => changeBackground('#52b69a', 'exit', event));
-    }
+
     dohvatiLetove();
     setInterval(dohvatiLetove, 360000)
 }

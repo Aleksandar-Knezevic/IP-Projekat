@@ -11,11 +11,6 @@ function showLogin() {
 async function init()
 {
 
-	let items = document.getElementsByClassName('menu-li');
-    for (let item of items) {
-        item.addEventListener('mouseenter', event => changeBackground('#1a759f', 'enter', event));
-        item.addEventListener('mouseleave', event => changeBackground('#52b69a', 'exit', event));
-    }
     var result = await fetch('https://restcountries.eu/rest/v2/region/europe');
     var data = await result.json();
     var selectionBox = document.getElementById('drzava');

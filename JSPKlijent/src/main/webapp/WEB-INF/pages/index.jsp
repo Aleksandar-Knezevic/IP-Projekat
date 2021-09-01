@@ -10,7 +10,7 @@
     <!-- https://coolors.co/d9ed92-b5e48c-99d98c-76c893-52b69a-34a0a4-168aad-1a759f-1e6091-184e77 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles/index-style.css">
     <link rel="stylesheet" href="styles/header-style.css">
     <link rel="stylesheet" href="styles/footer-style.css">
@@ -25,13 +25,13 @@
         
     <div class="content">
         <div class="dolasci">
-        	<div><span class="arrow" onclick="leftDolazak()"><<   </span><span id="dolasci-date"><%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %></span><span class="arrow" onclick="rightDolazak()">   >></span></div>
+        	<div class="date-picker"><span class="arrow" onclick="leftDolazak()"><<   </span><span id="dolasci-date"><%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %></span><span class="arrow" onclick="rightDolazak()">   >></span></div>
             <ul class="dolasci-list" id="dolasci-list">
                 
             </ul>
         </div>
         <div class="odlasci">
-        <div><span class="arrow" onclick="leftOdlazak()"><<   </span><span id="odlasci-date"><%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %></span><span class="arrow" onclick="rightOdlazak()">   >></span></div>
+        <div class="date-picker"><span class="arrow" onclick="leftOdlazak()"><<   </span><span id="odlasci-date"><%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %></span><span class="arrow" onclick="rightOdlazak()">   >></span></div>
             <ul class="odlasci-list" id="odlasci-list">
                 
             </ul>

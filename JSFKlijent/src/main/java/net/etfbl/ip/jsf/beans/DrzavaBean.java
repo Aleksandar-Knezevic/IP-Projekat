@@ -85,8 +85,13 @@ public class DrzavaBean implements Serializable {
 	{
 		try
 		{
+			if(drzava.getNazivDrzave()!=null)
+			{
 				DrzavaDAO.insert(drzava.getNazivDrzave());
 				drzava = new Drzava();
+			}
+						
+				
 			
 		}
 		catch (Exception e) {
@@ -97,6 +102,7 @@ public class DrzavaBean implements Serializable {
 	
 	public String novaDrzava()
 	{
+		drzava = new Drzava();
 		return "nova_drzava.xhtml?faces-redirect=true";
 	}
 	
@@ -124,6 +130,7 @@ public class DrzavaBean implements Serializable {
 	{
 		try
 		{
+		
 			DrzavaDAO.update(drzava);
 			drzava = new Drzava();
 		}

@@ -66,6 +66,7 @@ public class GradBean implements Serializable {
 	
 	public String noviGrad()
 	{
+		grad = new Grad();
 		return "novi_grad.xhtml?faces-redirect=true";
 	}
 	

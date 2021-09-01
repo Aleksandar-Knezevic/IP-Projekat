@@ -5,9 +5,10 @@
 <h:head />
 <ui:composition>
 		<hr/>
-    	<h:outputText value="Unesite naziv drzave"></h:outputText>
+    	
     	<hr />
-    	<h:form>
+    	<h:form style="display:flex; flex-direction:column; align-items:center;">
+    		<h:outputText value="Unesite naziv drzave"></h:outputText>
     		<h:inputText value="#{drzaveBean.drzava.nazivDrzave}" required="true" requiredMessage="Obavezno polje" id="naziv">
     			<f:validateRequired for="naziv"></f:validateRequired>
     			<h:message for="naziv" style="color:red" />

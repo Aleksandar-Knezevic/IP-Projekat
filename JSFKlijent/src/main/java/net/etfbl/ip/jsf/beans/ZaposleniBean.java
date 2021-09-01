@@ -49,6 +49,7 @@ public class ZaposleniBean implements Serializable {
 	
 	public String noviZaposleni()
 	{
+		zaposleni = new Zaposleni();
 		return "novi_zaposleni.xhtml?faces-redirect";
 	}
 	

@@ -1,16 +1,24 @@
 .header{
-    height: 100px;
-    background-color: #34a0a4;
+    min-height: 70px;
+    background-color: rgba(0,0,0,0.15);
     display: flex;
     align-items: center;
-    justify-content: center;
-
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(199, 235, 233, 0.35);
+    color:aliceblue;
+    flex-wrap: wrap;   
+    margin-bottom: 20px;
 }
 .title{
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor:pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
 }
+
 
 
 .menu-list{
@@ -18,11 +26,11 @@
     display: flex;
     justify-content: space-around;
     min-height: 50px;
-    /* background-color: #52b69a; */
     align-items: center;
     margin: 0;
     flex-wrap: wrap;
     padding: 0;
+    width:800px
 }
 
 .menu-li{
@@ -33,12 +41,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    font-weight: 550;
 }
 
 .login-form{
     height: 150px;
     width: 250px;
-    background-color: #D9ED92;
+    background-color: rgba(0,0,0,0.8);
     position: absolute;
     z-index: 1;
     margin-top: 190px;
@@ -49,27 +59,52 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    border-radius: 5px;
 }
 
 .login {
-    width: 70px;
-    height: 40px;
-    background-color: #184E77;
+
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    line-height: 40px;
-    margin-left: auto;
     margin-right: 20px;
+
 }
 
 .login-2 {
-    width: 100px;
-    height: 50px;
-    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 0.8rem;
     
 }
 
-li{
-    width: 90%;
+.menu-li:hover{
+    color: #c7ebe9;
+    
+    /* color: black; */
+    font-weight: 600;
+}
+
+
+@media only screen and (max-width: 1170px) {
+    .title{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .login-2{
+        width: 100%;
+        margin-right: 0;
+    }
+    .login{
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .login-form{
+        margin-top: 260px;
+        right: 200px;
+    }
 }

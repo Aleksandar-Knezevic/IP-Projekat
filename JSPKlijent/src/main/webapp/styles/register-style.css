@@ -1,11 +1,15 @@
 *{
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
 .body{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    overflow: scroll;
+    background-image: url("images/avion.jpg");
+    background-size: cover;
+    background-attachment: fixed;
 
 }
 
@@ -14,8 +18,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #99D98C;
+    background-color: rgba(0,0,0,0.5);
     flex:1;
+    color:aliceblue;
+    margin-bottom: 5px;
+    
     
 }
 
@@ -23,5 +30,16 @@
     font-size: 20px;
 }
 
+.form-div{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
 
 
+.form-div-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}

@@ -82,7 +82,7 @@ public class RezervacijaTeretnogLetaDAO {
 				.stream()
 				.filter(e -> e.getKorisnik().getId()==id)
 				.sorted((a,b) -> a.getDatumKreiranja().compareTo(b.getDatumKreiranja()))
-				.map(e -> new TeretnaRezervacija(e.getTeretniLet(), e.getStatus()))
+				.map(e -> new TeretnaRezervacija(e.getTeretniLet(), e.getStatus(), e.getRazlogPonistavanja()==null?"":e.getRazlogPonistavanja()))
 				.collect(Collectors.toList());
 	}
 	

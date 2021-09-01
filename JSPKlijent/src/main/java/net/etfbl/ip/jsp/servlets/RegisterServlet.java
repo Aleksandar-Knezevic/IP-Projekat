@@ -51,8 +51,20 @@ public class RegisterServlet extends HttpServlet {
 		String nalog = request.getParameter("nalog");
 		//System.out.println(ime + prezime + korisnickoIme + adresa + email + password + drzava + nalog);
 		try {
+		if(KorisnikDAO.checkUnique(korisnickoIme, email))
+		{
 			int a = KorisnikDAO.insert(ime, prezime, korisnickoIme, email, password,drzava,nalog,adresa);
 			KorisnikDTO korisnik = KorisnikDAO.selectOne(a);
+			request.getSession().setAttribute("errorMsg", "");
+		}
+		else
+		{
+			request.getSession().setAttribute("errorMsg", "Korisniko ime ili email je u upotrebi");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/pages/register.jsp");
+			dispatcher.forward(request, response);
+			return;
+		}
+
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

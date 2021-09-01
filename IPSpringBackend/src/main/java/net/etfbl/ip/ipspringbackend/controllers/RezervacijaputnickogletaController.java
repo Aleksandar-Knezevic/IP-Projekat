@@ -1,8 +1,10 @@
 package net.etfbl.ip.ipspringbackend.controllers;
 
 import net.etfbl.ip.ipspringbackend.models.RezervacijaKeyModel;
+import net.etfbl.ip.ipspringbackend.models.entities.PutnickiletEntity;
 import net.etfbl.ip.ipspringbackend.models.entities.RezervacijaputnickogletaEntity;
 import net.etfbl.ip.ipspringbackend.models.entities.RezervacijaputnickogletaEntityPK;
+import net.etfbl.ip.ipspringbackend.repositories.PutnickiletEntityRepository;
 import net.etfbl.ip.ipspringbackend.repositories.RezervacijaputnickogletaEntityRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +18,11 @@ import java.util.stream.Collectors;
 public class RezervacijaputnickogletaController {
 
     private final RezervacijaputnickogletaEntityRepository rezervacijaputnickogletaEntityRepository;
+    private final PutnickiletEntityRepository putnickiletEntityRepository;
 
-    public RezervacijaputnickogletaController(RezervacijaputnickogletaEntityRepository rezervacijaputnickogletaEntityRepository) {
+    public RezervacijaputnickogletaController(RezervacijaputnickogletaEntityRepository rezervacijaputnickogletaEntityRepository, PutnickiletEntityRepository putnickiletEntityRepository) {
         this.rezervacijaputnickogletaEntityRepository = rezervacijaputnickogletaEntityRepository;
+        this.putnickiletEntityRepository = putnickiletEntityRepository;
     }
 
     @GetMapping
@@ -49,7 +53,11 @@ public class RezervacijaputnickogletaController {
         RezervacijaputnickogletaEntity rezervacijaputnickogletaEntity = rezervacijaputnickogletaEntityRepository.getOne(new RezervacijaputnickogletaEntityPK(model.getLetId(), model.getKorisnikId()));
         rezervacijaputnickogletaEntity.setStatus("Ponistena");
         rezervacijaputnickogletaEntity.setRazlogPonistavanja(model.getRazlogPonistavanja());
+        PutnickiletEntity pl = putnickiletEntityRepository.getOne(rezervacijaputnickogletaEntity.getPutnickiLetId());
+        pl.setBrojSlobodnihMjesta(pl.getBrojSlobodnihMjesta()+rezervacijaputnickogletaEntity.getBrojMjesta());
+        putnickiletEntityRepository.save(pl);
         rezervacijaputnickogletaEntityRepository.save(rezervacijaputnickogletaEntity);
+
         return ResponseEntity.ok().build();
     }
 }

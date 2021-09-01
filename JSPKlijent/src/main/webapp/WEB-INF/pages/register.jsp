@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registracija</title>
     <link rel="stylesheet" href="styles/register-style.css">
     <script src="scripts/register-script.js"></script>
         <link rel="stylesheet" href="styles/header-style.css">
@@ -16,19 +16,13 @@
     <script src="scripts/footer-script.js"></script>
 </head>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="register-style.css">
-    <script src="register-script.js"></script>
-</head>
 
 <body class="body" onload="init()">
     <%@include file="header.jsp" %>
+    <div class="form-div-wrapper">
+    
+    <div class="form-div">
     <form action="RegisterServlet" class="form-container" method="post">
         <div>
             <label for="ime" class="form-label">Ime</label><br>
@@ -72,10 +66,15 @@
             <label for="teretni" class="form-label">Teretni</label>
         </div>
         <div>
-            <br><button id="submit">Submit</button>
+            <br><button id="submit" style="margin-bottom:5px">Submit</button>
+        </div>
+        <div>
+        	<p style="color:red;"><%=session.getAttribute("errorMsg")==null?"":session.getAttribute("errorMsg") %></p>
         </div>
 
     </form>
+    </div>
+    </div>
     <%@include file="footer.jsp" %>
 </body>
 

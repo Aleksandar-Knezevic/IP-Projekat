@@ -18,6 +18,7 @@ public class KorisnikDAO {
 	private static final String LOG_ACCESS = "UPDATE pristupi SET brojPristupa=brojPristupa+1 WHERE datum=?";
 	private static final String GET_ACCESS = "SELECT * FROM pristupi WHERE datum=?";
 	private static final String INSERT_ACCESS = "INSERT INTO pristupi (datum, brojPristupa) VALUES (?, ?)";
+	private static final String CHECK_UNIQUE = "SELECT * FROM korisnik WHERE korisnickoIme=? OR email=?";
 
 	private static Connection getConnection() throws Exception
 	{
@@ -132,7 +133,21 @@ public class KorisnikDAO {
 		ps.close();
 		c.close();
 		
-		
+	}
+	
+	public static boolean checkUnique(String korisnikoIme, String email) throws Exception
+	{
+	
+		Connection c = getConnection();
+		PreparedStatement ps = c.prepareStatement(CHECK_UNIQUE);
+		ps.setString(1, korisnikoIme);
+		ps.setString(2, email);
+		ResultSet rs = ps.executeQuery();
+		boolean result = rs.next();
+		rs.close();
+		ps.close();
+		c.close();
+		return !result;
 	}
 
 }

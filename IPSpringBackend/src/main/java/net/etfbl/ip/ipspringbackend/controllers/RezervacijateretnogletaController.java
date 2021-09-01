@@ -1,9 +1,12 @@
 package net.etfbl.ip.ipspringbackend.controllers;
 
 import net.etfbl.ip.ipspringbackend.models.RezervacijaKeyModel;
+import net.etfbl.ip.ipspringbackend.models.entities.PutnickiletEntity;
 import net.etfbl.ip.ipspringbackend.models.entities.RezervacijateretnogletaEntity;
 import net.etfbl.ip.ipspringbackend.models.entities.RezervacijateretnogletaEntityPK;
+import net.etfbl.ip.ipspringbackend.models.entities.TeretniletEntity;
 import net.etfbl.ip.ipspringbackend.repositories.RezervacijateretnogletaEntityRepository;
+import net.etfbl.ip.ipspringbackend.repositories.TeretniletEntityRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +19,11 @@ import java.util.stream.Collectors;
 public class RezervacijateretnogletaController {
 
     private final RezervacijateretnogletaEntityRepository rezervacijateretnogletaEntityRepository;
+    private final TeretniletEntityRepository teretniletEntityRepository;
 
-    public RezervacijateretnogletaController(RezervacijateretnogletaEntityRepository rezervacijateretnogletaEntityRepository) {
+    public RezervacijateretnogletaController(RezervacijateretnogletaEntityRepository rezervacijateretnogletaEntityRepository, TeretniletEntityRepository teretniletEntityRepository) {
         this.rezervacijateretnogletaEntityRepository = rezervacijateretnogletaEntityRepository;
+        this.teretniletEntityRepository = teretniletEntityRepository;
     }
 
     @GetMapping
@@ -48,6 +53,9 @@ public class RezervacijateretnogletaController {
         RezervacijateretnogletaEntity rezervacijateretnogletaEntity = rezervacijateretnogletaEntityRepository.getOne(new RezervacijateretnogletaEntityPK(rezervacijaKeyModel.getKorisnikId(), rezervacijaKeyModel.getLetId()));
         rezervacijateretnogletaEntity.setStatus("Ponistena");
         rezervacijateretnogletaEntity.setRazlogPonistavanja(rezervacijaKeyModel.getRazlogPonistavanja());
+        TeretniletEntity tl = teretniletEntityRepository.getOne(rezervacijateretnogletaEntity.getTeretniLetId());
+        tl.setOpisTereta(null);
+        teretniletEntityRepository.save(tl);
         rezervacijateretnogletaEntityRepository.save(rezervacijateretnogletaEntity);
         return ResponseEntity.ok().build();
     }

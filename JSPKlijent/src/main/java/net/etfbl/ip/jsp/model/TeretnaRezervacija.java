@@ -7,6 +7,7 @@ public class TeretnaRezervacija {
 	
 	private TeretniLetDTO let;
 	private String statusRezervacije;
+	private String razlogPonistavanja;
 	public TeretniLetDTO getLet() {
 		return let;
 	}
@@ -19,13 +20,21 @@ public class TeretnaRezervacija {
 	public void setStatusRezervacije(String statusRezervacije) {
 		this.statusRezervacije = statusRezervacije;
 	}
-	public TeretnaRezervacija(TeretniLetDTO let, String statusRezervacije) {
+	
+	public TeretnaRezervacija(TeretniLetDTO let, String statusRezervacije, String razlogPonistavanja) {
 		super();
 		this.let = let;
 		this.statusRezervacije = statusRezervacije;
+		this.razlogPonistavanja = razlogPonistavanja;
 	}
 	public TeretnaRezervacija() {
 		super();
+	}
+	public String getRazlogPonistavanja() {
+		return razlogPonistavanja;
+	}
+	public void setRazlogPonistavanja(String razlogPonistavanja) {
+		this.razlogPonistavanja = razlogPonistavanja;
 	}
 	
 

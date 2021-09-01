@@ -10,7 +10,7 @@
     <!-- https://coolors.co/d9ed92-b5e48c-99d98c-76c893-52b69a-34a0a4-168aad-1a759f-1e6091-184e77 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Moje rezervacije</title>
     <link rel="stylesheet" href="styles/moje-rezervacije-style.css">
     <script src="scripts/moje-rezervacije-script.js"></script>
     <link rel="stylesheet" href="styles/header-style.css">
@@ -22,7 +22,7 @@
     <%@include file="header.jsp" %>
        
     <div class="content">
-       <div style="margin-top: 6px;">Moje rezervacije</div>
+       <div style="margin-top: 6px; color:aliceblue;">Moje rezervacije</div>
         
         <div class="letovi" id="letovi">
             

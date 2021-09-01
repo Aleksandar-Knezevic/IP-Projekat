@@ -4,9 +4,16 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head />
 <ui:composition>
-	<h:panelGroup layout="block">
+	<h:panelGroup layout="block" style="display:flex; justify-content:center; flex-direction:column; align-items:center; background-color:rgba(0,0,0,0.5); height:100px; margin-bottom:10px; width:100%">
 		<span>ETFBL AERO</span><br></br>
-		<h:outputLink value="index.xhtml">Index</h:outputLink> || <h:outputLink value="drzave.xhtml">Drzave</h:outputLink> || <h:outputLink value="gradovi.xhtml">Gradovi</h:outputLink> || <h:outputLink value="korisnici.xhtml">Korisnici</h:outputLink> || <h:outputLink value="zaposleni.xhtml">Zaposleni</h:outputLink><h:form><h:commandLink action="#{userBean.logout}">Logout</h:commandLink></h:form>
+		<div style="display:flex;">
+		<h:outputLink value="index.xhtml" style="text-decoration:none; color:black; background-color:rgba(255,255,255,0.5); width:80px; border-radius:4px; display:flex; justify-content:center;">Index</h:outputLink> || 
+		<h:outputLink value="drzave.xhtml" style="text-decoration:none; color:black; background-color:rgba(255,255,255,0.5); width:80px; border-radius:4px; display:flex; justify-content:center;">Drzave</h:outputLink> || 
+		<h:outputLink value="gradovi.xhtml" style="text-decoration:none; color:black; background-color:rgba(255,255,255,0.5); width:80px; border-radius:4px; display:flex; justify-content:center;">Gradovi</h:outputLink> || 
+		<h:outputLink value="korisnici.xhtml" style="text-decoration:none; color:black; background-color:rgba(255,255,255,0.5); width:80px; border-radius:4px; display:flex; justify-content:center;">Korisnici</h:outputLink> || 
+		<h:outputLink value="zaposleni.xhtml" style="text-decoration:none; color:black; background-color:rgba(255,255,255,0.5); width:80px; border-radius:4px; display:flex; justify-content:center;">Zaposleni</h:outputLink>||
+		<h:form><h:commandLink action="#{userBean.logout}" style="text-decoration:none; color:black; background-color:rgba(255,255,255,0.5); width:80px; border-radius:4px; display:flex; justify-content:center;">Logout</h:commandLink></h:form>
+		</div>
 	</h:panelGroup>
 </ui:composition>
 </html>

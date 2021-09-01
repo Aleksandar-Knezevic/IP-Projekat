@@ -21,6 +21,7 @@
     <div class="content">
     	<div>Svi dolasci</div>
         <div><span class="arrow" onclick="left()"><<   </span><span id="dolasci-date"><%=new SimpleDateFormat("yyyy-MM-dd").format(new Date()) %></span><span class="arrow" onclick="right()">   >></span></div>
+        <div class="table-wrapper">
         <table style="width: 100%;" id="dolasci-table">
         <col width="14.2%"/>
         <col width="14.2%"/>
@@ -39,7 +40,7 @@
             <th>Vrsta leta</th>
             </tr>
         </table>
-        
+    	</div>
     </div>
     <%@include file="footer.jsp" %>
 </body>

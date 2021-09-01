@@ -2,14 +2,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head/>
-    <h:body>
-        <b>Prijava</b><br/>
-        <h:form>
+    <h:body style="display:flex; justify-content:center;align-items:center; flex-direction:column;">
+        
+        <h:form style="display:flex; justify-content:center;align-items:center; flex-direction:column; background-color: rgba(0,0,0,0.5); width:200px; border-radius:10px">
+        	<b>Prijava</b><br/>
 			<h:outputLabel>Korisnicko ime</h:outputLabel><br/>
 			<h:inputText required="true" value="#{userBean.admin.korisnickoIme}"></h:inputText><br/>
 			<h:outputLabel>Lozinka</h:outputLabel><br/>
 			<h:inputSecret required="true" value="#{userBean.admin.lozinka}"></h:inputSecret><br/>	
-			<h:commandButton value="Prijava" action="#{userBean.login}"></h:commandButton>
+			<h:commandButton value="Prijava" action="#{userBean.login}" style="margin-bottom:5px"></h:commandButton>
 		</h:form>
     </h:body>
 </html>

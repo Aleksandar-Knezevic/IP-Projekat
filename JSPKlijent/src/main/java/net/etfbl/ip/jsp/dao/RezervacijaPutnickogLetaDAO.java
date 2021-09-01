@@ -84,7 +84,7 @@ public class RezervacijaPutnickogLetaDAO {
 				.stream()
 				.filter(e -> e.getKorisnik().getId()==id)
 				.sorted((a,b) -> a.getDatumKreiranja().compareTo(b.getDatumKreiranja()))
-				.map(e -> new PutnickaRezervacija(e.getPutnickiLet(), e.getStatus()))
+				.map(e -> new PutnickaRezervacija(e.getPutnickiLet(), e.getStatus(), e.getRazlogPonistavanja()==null?"":e.getRazlogPonistavanja()))
 				.collect(Collectors.toList());
 	}
 	

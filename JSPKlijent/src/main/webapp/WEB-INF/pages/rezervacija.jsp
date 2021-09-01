@@ -10,7 +10,7 @@
     <!-- https://coolors.co/d9ed92-b5e48c-99d98c-76c893-52b69a-34a0a4-168aad-1a759f-1e6091-184e77 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rezervacije</title>
     <link rel="stylesheet" href="styles/rezervacija-style.css">
     <script src="scripts/rezervacija-script.js"></script>
             <link rel="stylesheet" href="styles/header-style.css">
@@ -21,7 +21,7 @@
 <body class="body" onload="init()">
     <%@include file="header.jsp" %>
     <div class="content">
-       <div style="margin-top: 6px;">Rezervisite let</div>
+       <div style="margin-top: 6px; color:aliceblue;">Rezervisite let</div>
         <div class="let-filter">
             <div>
                 <span>Datum leta:</span>
@@ -65,17 +65,15 @@
         
             	
         	<% }	%>
-        	<input type="number" name="reservationId" id="reservationId" hidden><br>
+        	<input type="number" name="reservationId" id="reservationId" hidden>
         	<div>
         	
-            <input type="submit" value="Rezervisi">
+            <input type="submit" value="Rezervisi" style="margin-top:-10px">
             
         	</div>
            </form>	
 
         </div>
-        
-        <div style="color: red;" id="errorMessage"></div>
         
     </div>
     <%@include file="footer.jsp" %>

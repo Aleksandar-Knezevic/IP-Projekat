@@ -77,6 +77,7 @@ public class KorisnikBean implements Serializable {
 	
 	public String noviKorisnik()
 	{
+		korisnik=new Korisnik();
 		return "novi_korisnik.xhtml?faces-redirect=true";
 	}
 	
