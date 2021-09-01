@@ -105,6 +105,9 @@
 
     .login-form{
         margin-top: 260px;
-        right: 200px;
+        right: calc(50% - 125px);
+    }
+    .menu-list{
+        width:100%;
     }
 }
