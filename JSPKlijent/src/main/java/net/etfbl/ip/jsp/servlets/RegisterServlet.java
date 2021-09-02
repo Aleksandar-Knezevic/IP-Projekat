@@ -49,6 +49,16 @@ public class RegisterServlet extends HttpServlet {
 		String confirmPassword = request.getParameter("confirmPassword");
 		String drzava = request.getParameter("drzava");
 		String nalog = request.getParameter("nalog");
+		if(ime==null ||
+		   prezime==null ||
+		   korisnickoIme==null ||
+		   adresa==null ||
+		   email==null ||
+		   password==null ||
+		   confirmPassword==null ||
+		   drzava==null ||
+		   nalog==null)
+		{
 		try {
 		if(KorisnikDAO.checkUnique(korisnickoIme, email))
 		{
@@ -68,6 +78,7 @@ public class RegisterServlet extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/pages/index.jsp");
 		dispatcher.forward(request, response);
