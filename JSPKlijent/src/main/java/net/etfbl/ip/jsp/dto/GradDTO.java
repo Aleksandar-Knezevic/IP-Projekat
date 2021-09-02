@@ -32,6 +32,10 @@ public class GradDTO {
 	public GradDTO() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "" + nazivGrada + "";
+	}
 
 	
 

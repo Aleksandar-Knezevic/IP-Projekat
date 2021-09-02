@@ -93,6 +93,14 @@ public class TeretniLetDTO {
 	public TeretniLetDTO() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "datumLeta=" + datumLeta + ", polazniGrad=" + polazniGrad + ", odredisniGrad="
+				+ odredisniGrad + ", polaznaDrzava=" + polaznaDrzava + ", odredisnaDrzava=" + odredisnaDrzava
+				+ ", status=" + status + ", vrijemePolaska=" + vrijemePolaska + ", vrijemeDolaska=" + vrijemeDolaska
+				+ "";
+	}
+	
 	
 
 }

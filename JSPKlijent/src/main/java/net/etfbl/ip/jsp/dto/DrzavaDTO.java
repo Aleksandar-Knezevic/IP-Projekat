@@ -23,6 +23,12 @@ public class DrzavaDTO {
 	public DrzavaDTO() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "" + nazivDrzave + "";
+	}
+	
+	
 
 	
 

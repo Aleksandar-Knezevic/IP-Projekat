@@ -102,6 +102,15 @@ public class PutnickiLetDTO {
 	public PutnickiLetDTO() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "datumLeta=" + datumLeta + ", brojMjesta=" + brojMjesta + ", polazniGrad=" + polazniGrad
+				+ ", odredisniGrad=" + odredisniGrad + ", polaznaDrzava=" + polaznaDrzava + ", odredisnaDrzava="
+				+ odredisnaDrzava + ", status=" + status + ", vrijemePolaska=" + vrijemePolaska + ", vrijemeDolaska="
+				+ vrijemeDolaska + ", brojSlobodnihMjesta=" + brojSlobodnihMjesta + "";
+	}
+	
+	
 
 	
 
