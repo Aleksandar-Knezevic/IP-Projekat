@@ -1,18 +1,11 @@
 var visibility = 'visible';
-function showLogin() {
-    let seen = document.getElementById('login-form').style.visibility;
-    if (seen === 'visible')
-        document.getElementById('login-form').style.visibility = 'hidden';
-    else
-        document.getElementById('login-form').style.visibility = visibility;
 
-}
 
 function init()
 {
 
     dohvatiLetove();
-    setInterval(dohvatiLetove, 360000)
+    setInterval(dohvatiLetove, 60000)
 }
 
 
@@ -34,8 +27,7 @@ async function dohvatiLetove()
 
     
     var table = document.getElementById("odlasci-table");
-    // for(var i = 1; i<table.rows.length;i++)
-    //     table.deleteRow(i);
+
     while(table.rows.length > 1)
         table.deleteRow(1);
     console.log(table.rows);
@@ -89,10 +81,10 @@ function right()
     dohvatiLetove();
 }
 
-function changeBackground(color, event, element) {
-    element.target.style.background = color;
-    if (event === 'enter')
-        element.target.style.cursor = 'pointer'
-    if (event === 'exit')
-        element.target.style.cursor = 'unset'
-}
+// function changeBackground(color, event, element) {
+//     element.target.style.background = color;
+//     if (event === 'enter')
+//         element.target.style.cursor = 'pointer'
+//     if (event === 'exit')
+//         element.target.style.cursor = 'unset'
+// }

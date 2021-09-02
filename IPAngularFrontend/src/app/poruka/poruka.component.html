@@ -10,7 +10,7 @@
                 <mat-label>Odgovorite na poruku</mat-label>
                 <textarea matInput #body></textarea>
             </mat-form-field>
-            <button mat-raised-button color="accent" style="margin: 5px;" (click)="sendMail(body.value); body.value=''">Posalji</button>
+            <button mat-raised-button color="accent" style="margin: 5px;" (click)="sendMail(body.value); body.value=''" type="button">Posalji</button>
         </form>
     </div>
 </mat-expansion-panel>

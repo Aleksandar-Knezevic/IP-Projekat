@@ -14,6 +14,7 @@ public class TeretniLetDAO {
 	private static final String SELECT_ALL = "SELECT * FROM teretnilet";
 	private static final String SELECT_ONE = "SELECT * FROM teretnilet WHERE id=?";
 	private static final String ADD_CARGO_DESC = "UPDATE teretnilet SET opisTereta=? WHERE id=?";
+	private static final String UPDATE_STATUS = "UPDATE teretnilet SET status=? WHERE id=?";
 	
 	private static Connection getConnection() throws Exception
 	{
@@ -68,6 +69,17 @@ public class TeretniLetDAO {
 			return false;
 		else 
 			return true;
+	}
+	
+	public static void postaviStatus(String status, int id) throws Exception
+	{
+		Connection c = getConnection();
+		PreparedStatement ps = c.prepareStatement(UPDATE_STATUS);
+		ps.setString(1, status);
+		ps.setInt(2, id);
+		ps.executeUpdate();
+		ps.close();
+		c.close();
 	}
 
 }

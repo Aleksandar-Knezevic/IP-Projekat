@@ -69,7 +69,7 @@
             <br><button id="submit" style="margin-bottom:5px">Submit</button>
         </div>
         <div>
-        	<p style="color:red;"><%=session.getAttribute("errorMsg")==null?"":session.getAttribute("errorMsg") %></p>
+        	<p style="color:red; font-weight:bold;"><%=session.getAttribute("errorMsg")==null?"":session.getAttribute("errorMsg") %></p>
         </div>
 
     </form>

@@ -4,8 +4,8 @@ function init() {
 
     dohvatiDolaske();
     dohvatiOdlaske();
-    setInterval(dohvatiDolaske, 360000);
-    setInterval(dohvatiOdlaske, 360000);
+    setInterval(dohvatiDolaske, 60000);
+    setInterval(dohvatiOdlaske, 60000);
 
 
 }

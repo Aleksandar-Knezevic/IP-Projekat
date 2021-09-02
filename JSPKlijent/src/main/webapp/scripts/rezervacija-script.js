@@ -7,8 +7,6 @@ async function init()
     await popuniDrzave();
     document.getElementById('polaznaDrzava').selectedIndex="0";
     document.getElementById('odredisnaDrzava').selectedIndex="0";
-    // document.getElementById('polaznaDrzava').dispatchEvent(new Event('change'));
-    // document.getElementById('odredisnaDrzava').dispatchEvent(new Event('change'));
     var tipNaloga = readCookie('accountType');
     let baseUrl = 'http://localhost:8080/JSPKlijent/';
     if(tipNaloga==='Putnicki')
@@ -133,14 +131,7 @@ function obradiRezervaciju()
     
 }
 
-function showLogin() {
-    let seen = document.getElementById('login-form').style.visibility;
-    if (seen === 'visible')
-        document.getElementById('login-form').style.visibility = 'hidden';
-    else
-        document.getElementById('login-form').style.visibility = visibility;
 
-}
 
 async function popuniDrzave()
 {
@@ -205,8 +196,16 @@ function readCookie(name) {
     return null;
 }
 
-function popuniLetovima(data)
+async function popuniLetovima(data)
 {
+    let baseUrl = 'http://localhost:8080/JSPKlijent/MojeRezervacijeData';
+    var letoviResult = await fetch(baseUrl);
+    var letoviData = await letoviResult.json();
+    console.log(letoviData);
+    console.log(data);
+    letoviData.forEach(e => {
+        data = data.filter((el) => el.id!==e.let.id);
+    });
     data = data.filter((el) => el.status==='Ceka');
     var letovi = document.getElementById('letovi');
     letovi.innerHTML="";

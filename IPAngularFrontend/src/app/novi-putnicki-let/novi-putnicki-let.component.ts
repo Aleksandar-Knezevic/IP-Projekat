@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,7 +33,7 @@ export class NoviPutnickiLetComponent implements OnInit {
   {
       this.noviPutnickiLetForm = this.fb.group({
         datumiLeta: this.fb.array([this.fb.control('')]),
-        brojMjesta: 'Broj mjesta',
+        brojMjesta: new FormControl('Broj mjesta', Validators.min(1)),
         vrijemePolaska: '',
         vrijemeDolaska: '',
         polaznaDrzava: 'Polazna drzava',
@@ -71,6 +71,8 @@ export class NoviPutnickiLetComponent implements OnInit {
     let noviLet = this.noviPutnickiLetForm.value;
     let polazniGrad:any={};
     let odredisniGrad:any={};
+    if(this.noviPutnickiLetForm.valid)
+    {
     try{
       polazniGrad = await this.http.get(this.CITY_URL+'/'+this.noviPutnickiLetForm.value.polazniGrad).toPromise();
       odredisniGrad = await this.http.get(this.CITY_URL+'/'+this.noviPutnickiLetForm.value.odredisniGrad).toPromise();
@@ -102,7 +104,7 @@ export class NoviPutnickiLetComponent implements OnInit {
     catch(error){
       this.formValid=true;
     }
-
+  }
     
     
   }

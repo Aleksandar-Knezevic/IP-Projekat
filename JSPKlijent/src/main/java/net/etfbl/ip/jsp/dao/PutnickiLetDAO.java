@@ -14,6 +14,7 @@ public class PutnickiLetDAO {
 	private static final String SELECT_ALL = "SELECT * FROM putnickilet";
 	private static final String SELECT_ONE = "SELECT * FROM putnickilet WHERE id=?";
 	private static final String UPDATE_AVAILABLE_SEATS = "UPDATE putnickilet SET brojSlobodnihMjesta=? where id=?";
+	private static final String UPDATE_STATUS = "UPDATE putnickilet SET status=? WHERE id=?";
 	
 	private static Connection getConnection() throws Exception
 	{
@@ -68,6 +69,17 @@ public class PutnickiLetDAO {
 			return false;
 		else 
 			return true;
+	}
+	
+	public static void postaviStatus(String status, int id) throws Exception
+	{
+		Connection c = getConnection();
+		PreparedStatement ps = c.prepareStatement(UPDATE_STATUS);
+		ps.setString(1, status);
+		ps.setInt(2, id);
+		ps.executeUpdate();
+		ps.close();
+		c.close();
 	}
 
 }

@@ -22,8 +22,17 @@ public class MojeRezervacijePageServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/moje-rezervacije.jsp");
-		dispatcher.forward(request, response);
+		if(request.getSession().getAttribute("user")!=null)
+		{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/moje-rezervacije.jsp");
+			dispatcher.forward(request, response);
+		}
+		else
+		{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/login.jsp");
+			dispatcher.forward(request, response);
+		}
+		
 	}
 
 

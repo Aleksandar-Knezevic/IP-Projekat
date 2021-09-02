@@ -12,33 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 import net.etfbl.ip.jsp.dao.KorisnikDAO;
 import net.etfbl.ip.jsp.dto.KorisnikDTO;
 
-/**
- * Servlet implementation class RegisterServlet
- */
+
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+ 
     public RegisterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getSession().getAttribute("user")!=null)
+		{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/index.jsp");
+			dispatcher.forward(request, response);
+		}
+		else
+		{
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/register.jsp");
+			dispatcher.forward(request, response);
+		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/register.jsp");
-		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ime = request.getParameter("ime");
 		String prezime = request.getParameter("prezime");
@@ -49,7 +49,6 @@ public class RegisterServlet extends HttpServlet {
 		String confirmPassword = request.getParameter("confirmPassword");
 		String drzava = request.getParameter("drzava");
 		String nalog = request.getParameter("nalog");
-		//System.out.println(ime + prezime + korisnickoIme + adresa + email + password + drzava + nalog);
 		try {
 		if(KorisnikDAO.checkUnique(korisnickoIme, email))
 		{
@@ -59,7 +58,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 		else
 		{
-			request.getSession().setAttribute("errorMsg", "Korisniko ime ili email je u upotrebi");
+			request.getSession().setAttribute("errorMsg", "Korisnicko ime ili email je u upotrebi");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/pages/register.jsp");
 			dispatcher.forward(request, response);
 			return;

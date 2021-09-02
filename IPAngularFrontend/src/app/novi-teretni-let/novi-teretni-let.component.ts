@@ -70,6 +70,9 @@ export class NoviTeretniLetComponent implements OnInit {
     let noviLet = this.noviPutnickiLetForm.value;
     let polazniGrad:any={};
     let odredisniGrad:any={};
+    if(this.noviPutnickiLetForm.valid)
+    {
+    
     try{
       polazniGrad = await this.http.get(this.CITY_URL+'/'+this.noviPutnickiLetForm.value.polazniGrad).toPromise();
       odredisniGrad = await this.http.get(this.CITY_URL+'/'+this.noviPutnickiLetForm.value.odredisniGrad).toPromise();
@@ -100,7 +103,7 @@ export class NoviTeretniLetComponent implements OnInit {
     catch(error){
       this.formValid=true;
     }
-
+  }
     
     
   }

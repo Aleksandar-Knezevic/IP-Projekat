@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.etfbl.ip.jsp.cron.PutnickiUpdaterThread;
+import net.etfbl.ip.jsp.cron.TeretniUpdaterThread;
 import net.etfbl.ip.jsp.dao.KorisnikDAO;
 
 /**
@@ -17,23 +19,25 @@ import net.etfbl.ip.jsp.dao.KorisnikDAO;
 @WebServlet("/WelcomeServlet")
 public class WelcomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+    private boolean started = false;
+
     public WelcomeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try
 		{
 			KorisnikDAO.evidentirajPristup();
+			if(!started)
+			{
+				new PutnickiUpdaterThread().start();
+				new TeretniUpdaterThread().start();
+				started=true;
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();// TODO: handle exception
@@ -42,9 +46,7 @@ public class WelcomeServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
