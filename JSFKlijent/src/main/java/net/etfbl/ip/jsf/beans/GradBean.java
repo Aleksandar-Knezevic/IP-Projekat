@@ -74,7 +74,10 @@ public class GradBean implements Serializable {
 	{
 		try
 		{
-			GradDAO.insert(grad.getNazivGrada(), Integer.parseInt(selectedDrzava));
+			if(grad.getNazivGrada()!=null && selectedDrzava!=null)
+			{
+				GradDAO.insert(grad.getNazivGrada(), Integer.parseInt(selectedDrzava));
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();// TODO: handle exception
@@ -131,9 +134,13 @@ public class GradBean implements Serializable {
 	{
 		try
 		{
+			if(grad.getNazivGrada()!=null && selectedDrzava!=null)
+			{
+				
 			
-			GradDAO.update(grad.getNazivGrada(), Integer.parseInt(selectedDrzava), grad.getId());
-			grad= new Grad();
+				GradDAO.update(grad.getNazivGrada(), Integer.parseInt(selectedDrzava), grad.getId());
+				grad= new Grad();
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();// TODO: handle exception

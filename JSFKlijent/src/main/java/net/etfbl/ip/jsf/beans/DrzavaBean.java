@@ -130,9 +130,13 @@ public class DrzavaBean implements Serializable {
 	{
 		try
 		{
+		if(drzava.getNazivDrzave()!=null)
+		{
+			
 		
 			DrzavaDAO.update(drzava);
 			drzava = new Drzava();
+		}
 		}
 		catch (Exception e) {
 			e.printStackTrace();

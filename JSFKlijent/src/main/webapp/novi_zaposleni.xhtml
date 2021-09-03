@@ -8,7 +8,21 @@
                 <ui:include src="/WEB-INF/components/header.xhtml"></ui:include>
             </ui:define>
             <ui:define name="body"> 
+            	
                 <ui:include src="/WEB-INF/components/body_novi_zaposleni.xhtml"></ui:include>
+            <script>
+            		function load(){
+            			
+            			let arr = document.getElementsByTagName('input');
+            			for(let item of arr)
+            				{
+            					if(item.type=='text' || item.type=='password')
+            						item.required=true;
+            				}
+            			
+            		}
+            		load();
+            	</script>
             </ui:define>            
         </ui:composition>
     </h:body>

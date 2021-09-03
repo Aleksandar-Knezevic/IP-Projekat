@@ -25,7 +25,6 @@
     	<h:selectOneMenu value="#{korisniciBean.korisnik.drzava}">
     		<f:selectItems value="#{korisniciBean.dostupneDrzave}" var="drzava" itemValue="#{drzava.name}" itemLabel="#{drzava.name}"></f:selectItems>
     	</h:selectOneMenu>
-    	<h:commandButton value="Dohvati dostupne drzave" action="#{korisniciBean.dohvatiDostupneDrzave}"></h:commandButton>
     	<hr/>
     	<h:outputText value="Tip naloga"></h:outputText>
     	<h:selectOneMenu value="#{korisniciBean.korisnik.tipNaloga}">

@@ -3,7 +3,7 @@
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head/>
     <h:body style="display:flex; justify-content:center;align-items:center; flex-direction:column;">
-        
+       
         <h:form style="display:flex; justify-content:center;align-items:center; flex-direction:column; background-color: rgba(0,0,0,0.5); width:200px; border-radius:10px">
         	<b>Prijava</b><br/>
 			<h:outputLabel>Korisnicko ime</h:outputLabel><br/>
@@ -12,5 +12,18 @@
 			<h:inputSecret required="true" value="#{userBean.admin.lozinka}"></h:inputSecret><br/>	
 			<h:commandButton value="Prijava" action="#{userBean.login}" style="margin-bottom:5px"></h:commandButton>
 		</h:form>
+		<script>
+            		function load(){
+            			
+            			let arr = document.getElementsByTagName('input');
+            			for(let item of arr)
+            				{
+            					if(item.type=='text' || item.type=='password')
+            						item.required=true;
+            				}
+            			
+            		}
+            		load();
+            	</script>
     </h:body>
 </html>

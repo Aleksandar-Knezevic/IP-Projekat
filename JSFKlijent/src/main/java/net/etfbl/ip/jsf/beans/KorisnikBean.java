@@ -29,7 +29,7 @@ public class KorisnikBean implements Serializable {
 	private ArrayList<RestDrzava> dostupneDrzave = new ArrayList<RestDrzava>();
 	
 	public KorisnikBean() {
-		
+	
 
 	}
 	
@@ -77,12 +77,6 @@ public class KorisnikBean implements Serializable {
 	
 	public String noviKorisnik()
 	{
-		korisnik=new Korisnik();
-		return "novi_korisnik.xhtml?faces-redirect=true";
-	}
-	
-	public String dohvatiDostupneDrzave()
-	{
 		try
 		{
 			HttpRequest request = HttpRequest
@@ -104,8 +98,11 @@ public class KorisnikBean implements Serializable {
 		catch (Exception e) {
 			e.printStackTrace();// TODO: handle exception
 		}
-		return null;
+		korisnik=new Korisnik();
+		return "novi_korisnik.xhtml?faces-redirect=true";
 	}
+	
+
 	
 	public String dodajKorisnika()
 	{
@@ -153,6 +150,27 @@ public class KorisnikBean implements Serializable {
 	
 	public String azurirajKorisnikaPage()
 	{
+		try
+		{
+			HttpRequest request = HttpRequest
+								 .newBuilder()
+								 .uri(new URI("https://restcountries.eu/rest/v2/region/europe"))
+								 .GET()
+								 .build();
+			HttpResponse<String> response = HttpClient
+											.newBuilder()
+											.build()
+											.send(request, BodyHandlers.ofString());
+			String result = response.body();
+			Gson gson = new Gson();
+			dostupneDrzave = gson.fromJson(result, ArrayList.class);
+			
+								 
+								 
+		}
+		catch (Exception e) {
+			e.printStackTrace();// TODO: handle exception
+		}
 		Map<String, String> reqMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		if(reqMap.containsKey("id"))
 		{
