@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,7 +32,7 @@ export class NoviTeretniLetComponent implements OnInit {
   initializeForm():void
   {
       this.noviPutnickiLetForm = this.fb.group({
-        datumiLeta: this.fb.array([this.fb.control('')]),
+        datumiLeta: this.fb.array([this.fb.control('')], Validators.required),
         vrijemePolaska: '',
         vrijemeDolaska: '',
         polaznaDrzava: 'Polazna drzava',
@@ -103,6 +103,9 @@ export class NoviTeretniLetComponent implements OnInit {
     catch(error){
       this.formValid=true;
     }
+  }
+  else{
+    alert('Provjerite polja');
   }
     
     

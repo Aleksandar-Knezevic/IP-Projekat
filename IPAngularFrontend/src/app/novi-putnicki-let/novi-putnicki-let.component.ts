@@ -32,7 +32,7 @@ export class NoviPutnickiLetComponent implements OnInit {
   initializeForm():void
   {
       this.noviPutnickiLetForm = this.fb.group({
-        datumiLeta: this.fb.array([this.fb.control('')]),
+        datumiLeta: this.fb.array([this.fb.control('')], Validators.required),
         brojMjesta: new FormControl('Broj mjesta', Validators.min(1)),
         vrijemePolaska: '',
         vrijemeDolaska: '',
@@ -105,6 +105,8 @@ export class NoviPutnickiLetComponent implements OnInit {
       this.formValid=true;
     }
   }
+  else
+    alert('Provjerite polja');
     
     
   }
