@@ -18,7 +18,7 @@ public class ZaposleniDAO {
 	private static Connection getConnection() throws Exception
 	{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC&useSSL=false", "root", "nokia2700");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC&useSSL=false", "", "");
 	}
 	
 	public static ArrayList<Zaposleni> selectAll() throws Exception
